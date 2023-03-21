@@ -27,26 +27,44 @@ namespace TeReoMaoriQuiz
                 Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
                 int num = Convert.ToInt32(Console.ReadLine());
                 {
-                    do //start of while loop(it is looped so if the user enters an option not in the list
+                    if (num == 1)
+                    {
+                        Easy();
+                    }
+                    else if (num == 2)
+                    {
+                        Medium();
+                    }
+                    else if (num == 3)
+                    {
+                        Hard();
+                    }
+                    else if (num == 4)
+                    {
+                        Console.WriteLine("Goodbye!");
+                    }
+                    else
+                        do //start of while loop(it is looped so if the user enters an option not in the list
                     { //this is to direct user to which difficulty he chose. 
-                        if (num == 1)
-                        {
-                            Easy();
-                        }
-                        else if (num == 2)
-                        {
-                            Medium();
-                        }
-                        else if (num == 3)
-                        {
-                            Hard();
-                        }
-                        else if (num == 4)
-                        {
-                            Console.WriteLine("Goodbye!");
-                        }
                         Console.Write("Please enter a valid option: ");
                         num = Convert.ToInt32(Console.ReadLine());
+                            if (num == 1)
+                            {
+                                Easy();
+                            }
+                            else if (num == 2)
+                            {
+                                Medium();
+                            }
+                            else if (num == 3)
+                            {
+                                Hard();
+                            }
+                            else if (num == 4)
+                            {
+                                Console.WriteLine("Goodbye!");
+                            }
+                            
                     } while (num != 1 && num != 2 && num != 3 && num != 4);
                 } //end of menu method
             }
