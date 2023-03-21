@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Threading.Channels;
+using System.Threading.Tasks.Sources;
 
 namespace TeReoMaoriQuiz
 {
@@ -75,21 +76,23 @@ namespace TeReoMaoriQuiz
         { // start of easy section
             Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
-            Console.WriteLine("This is a 10 question quiz of basic Maori langguange knowledge. You will have to choose from the options below of the best english word that describes the Maori word. Take your time and goodluck!");
+            Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best english word that describes the Maori word. Take your time and goodluck!");
             Console.WriteLine("\nPress enter to start quiz...");
             Console.ReadLine();
 
+            int Qnum = 0;
             //Question 1
             Console.Clear();
-            Console.WriteLine("question?");
-            Console.WriteLine("a.111\nb.222\nc.333\n");
+            Console.WriteLine($"Question {Qnum++}");
+            Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
+            Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
             Console.Write("Your answer: ");
             string answer = Console.ReadLine().ToUpper();
             if (answer == "A")
             {
                 Console.WriteLine("111");
             }
-            else if (answer == "B") 
+            else if (answer == "B")
             {
                 Console.WriteLine("222");
             }
@@ -97,6 +100,25 @@ namespace TeReoMaoriQuiz
             {
                 Console.WriteLine("333");
             }
+            do
+            {
+
+                Console.WriteLine("Please enter a valid option: ");
+                answer = Console.ReadLine().ToUpper();
+                if (answer == "A")
+                {
+                    
+                }
+                else if (answer == "B")
+                {
+                    Console.WriteLine("222");
+                }
+                else if (answer == "C")
+                {
+                    Console.WriteLine("corect");
+                }
+            } while (answer != "A" || answer != "B" || answer != "C");
+            
 
 
 
