@@ -74,6 +74,17 @@ namespace TeReoMaoriQuiz
         { // start of easy section
             Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
+            Console.WriteLine("This is a 10 question quiz of basic Maori langguange knowledge. You will have to choose from the options below of the best english word that describes the Maori word. Take your time and goodluck!");
+            Console.WriteLine("\nPress enter to start quiz...");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("question?");
+            Console.WriteLine("a.111\nb.222\nc.333\n");
+            Console.Write("Your answer: ");
+            string answer = Console.ReadLine().ToUpper();
+
+
+
         } // end of easy section
         static void Medium()
         { // start of medium section
