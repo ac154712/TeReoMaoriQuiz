@@ -26,30 +26,43 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine($"\nHello {name}!");
                 Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
                 int num = Convert.ToInt32(Console.ReadLine());
-                
-                if (num == 1)
+                /*switch (num)
                 {
-                    Easy();
-                }
-                else if (num == 2)
+                    case 1:
+                        Easy();
+                        break;
+                    case 2:
+                        Medium();
+                        break;
+                    case 3:
+                        Hard();
+                        break;
+
+                }*/
                 {
-                    Medium();
-                }
-                else if (num == 3)
-                {
-                    Hard();
-                }
-                else if (num == 4)
-                {
-                    Console.WriteLine("Goodbye!");
-                }
-                else
-                {
-                    do
-                    {
-                        Console.Write("Please enter a valid option: ");
-                        num = Convert.ToInt32(Console.ReadLine());
-                    } while (num != 1 || num != 2 || num != 3 || num != 4);
+                    do //start of while loop
+                    { //this is to direct user to which difficulty he chose. 
+                        if (num == 1)
+                        {
+                            Easy();
+                        }
+                        else if (num == 2)
+                        {
+                            Medium();
+                        }
+                        else if (num == 3)
+                        {
+                            Hard();
+                        }
+                        else if (num == 4)
+                        {
+                            Console.WriteLine("Goodbye!");
+                        }
+                        else
+                            Console.Write("Please enter a valid option: ");
+                            num = Convert.ToInt32(Console.ReadLine());
+
+                    } while (num != 1 && num != 2 && num != 3 && num != 4);
                 } //end of menu method
             }
         }
