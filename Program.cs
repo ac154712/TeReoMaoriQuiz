@@ -80,14 +80,18 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("\nPress enter to start quiz...");
             Console.ReadLine();
 
+            String feedback = ;
+            String Answer
             int Qnum = 0;
+
             //Question 1
             Console.Clear();
             Console.WriteLine($"Question {Qnum++}");
+            Console.WriteLine("Your score: ");
             Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
             Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
             Console.Write("Your answer: ");
-            string answer = Console.ReadLine().ToUpper();
+            string answer= Console.ReadLine().ToUpper();
             if (answer == "A")
             {
                 Console.WriteLine("111");
@@ -118,8 +122,16 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine("corect");
                 }
             } while (answer != "A" || answer != "B" || answer != "C");
-            
+            //end of question 1
 
+            //Question 2
+            Console.Clear();
+            Console.WriteLine($"Question {Qnum++}");
+            Console.WriteLine("Your score: ");
+            Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
+            Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
+            Console.Write("Your answer: ");
+            string answer = Console.ReadLine().ToUpper();
 
 
         } // end of easy section
