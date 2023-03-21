@@ -26,21 +26,8 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine($"\nHello {name}!");
                 Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
                 int num = Convert.ToInt32(Console.ReadLine());
-                /*switch (num)
                 {
-                    case 1:
-                        Easy();
-                        break;
-                    case 2:
-                        Medium();
-                        break;
-                    case 3:
-                        Hard();
-                        break;
-
-                }*/
-                {
-                    do //start of while loop
+                    do //start of while loop(it is looped so if the user enters an option not in the list
                     { //this is to direct user to which difficulty he chose. 
                         if (num == 1)
                         {
@@ -58,10 +45,8 @@ namespace TeReoMaoriQuiz
                         {
                             Console.WriteLine("Goodbye!");
                         }
-                        else
-                            Console.Write("Please enter a valid option: ");
-                            num = Convert.ToInt32(Console.ReadLine());
-
+                        Console.Write("Please enter a valid option: ");
+                        num = Convert.ToInt32(Console.ReadLine());
                     } while (num != 1 && num != 2 && num != 3 && num != 4);
                 } //end of menu method
             }
