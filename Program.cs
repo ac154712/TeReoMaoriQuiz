@@ -76,62 +76,93 @@ namespace TeReoMaoriQuiz
         { // start of easy section
             Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
-            Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best english word that describes the Maori word. Take your time and goodluck!");
+            Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given. Take your time\nand goodluck!");
             Console.WriteLine("\nPress enter to start quiz...");
-            Console.ReadLine();
+            Console.ReadLine(); //console.readline without a variable
 
-            String feedback = ;
-            String Answer
-            int Qnum = 0;
-
+            
+            String[] answer = new string[10] ;
+            int feedback = 0, Qnum = 0, i = 0, score = 0, outof = 0;
+            
             //Question 1
             Console.Clear();
-            Console.WriteLine($"Question {Qnum++}");
-            Console.WriteLine("Your score: ");
-            Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
+            Qnum++;
+            Console.WriteLine($"Question {Qnum}");
+            Console.WriteLine("\nWhich of the following Maori word translates to 'Hello!' ?");
             Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
             Console.Write("Your answer: ");
-            string answer= Console.ReadLine().ToUpper();
-            if (answer == "A")
-            {
-                Console.WriteLine("111");
-            }
-            else if (answer == "B")
-            {
-                Console.WriteLine("222");
-            }
-            else if (answer == "C")
-            {
-                Console.WriteLine("333");
-            }
-            do
-            {
+            answer[i]= Console.ReadLine().ToUpper(); //To.Upper so if the user enters a small letter
 
-                Console.WriteLine("Please enter a valid option: ");
-                answer = Console.ReadLine().ToUpper();
-                if (answer == "A")
+            //
+            if (answer[i] == "A")
+            {
+                feedback = 2; //2 means wrong
+                outof++;
+                i++;
+            }
+            else if (answer[i] == "B")
+            {
+                feedback = 2; //2 means wrong
+                outof++;
+                i++;
+            }
+            else if (answer[i] == "C") //correct
+            {
+                feedback = 1; //1 means correct
+                score++; //adding one point to the score
+                outof++; //out of is how many questions the user has answered so far
+                i++; //adding 1 so that the answer in the next question will be stored in answer[2] (second chunk of array)
+            }
+
+            do //if user inputs an invalid option
                 {
-                    
-                }
-                else if (answer == "B")
-                {
-                    Console.WriteLine("222");
-                }
-                else if (answer == "C")
-                {
-                    Console.WriteLine("corect");
-                }
-            } while (answer != "A" || answer != "B" || answer != "C");
+                    Console.WriteLine("Please enter a valid option: ");
+                    answer[i] = Console.ReadLine().ToUpper();
+                    if (answer[i] == "A")
+                    {
+                        feedback = 2;
+                        outof++;
+                        i++;
+                    }
+                    else if (answer[i] == "B")
+                    {
+                        feedback = 2;
+                        outof++;
+                        i++;
+                    }
+                    else if (answer[i] == "C")
+                    {
+                        feedback = 1; //1 means correct
+                        score++; 
+                        outof++; 
+                        i++; 
+                    }
+                } while (answer[i] != "A" || answer[i] != "B" || answer[i] != "C");
+
             //end of question 1
 
             //Question 2
             Console.Clear();
-            Console.WriteLine($"Question {Qnum++}");
-            Console.WriteLine("Your score: ");
+            
+            //if statement if the user got it correct or not
+            if (feedback == 1)
+            {
+                Console.WriteLine("You were correct!");
+            }
+            else if (feedback == 2)
+            {
+                Console.WriteLine("Unlucky, you got it wrong.");
+            } //end of if
+
+            Console.WriteLine($"Your score: {score}/{outof} ");
+            Qnum++;
+            Console.WriteLine($"\nQuestion {Qnum}");
             Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
             Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
             Console.Write("Your answer: ");
-            string answer = Console.ReadLine().ToUpper();
+            answer[i] = Console.ReadLine().ToUpper();
+
+            
 
 
         } // end of easy section
