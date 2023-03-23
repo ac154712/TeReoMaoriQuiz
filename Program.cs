@@ -93,7 +93,7 @@ namespace TeReoMaoriQuiz
             Console.Write("Your answer: ");
             answer[i]= Console.ReadLine().ToUpper(); //To.Upper so if the user enters a small letter
 
-            //
+            //if for user answer
             if (answer[i] == "A")
             {
                 feedback = 2; //2 means wrong
@@ -144,8 +144,8 @@ namespace TeReoMaoriQuiz
             //Question 2
             Console.Clear();
             
-            //if statement if the user got it correct or not
-            if (feedback == 1)
+            
+            if (feedback == 1) //if statement if the user got it correct or not
             {
                 Console.WriteLine("You were correct!");
             }
@@ -156,11 +156,14 @@ namespace TeReoMaoriQuiz
 
             Console.WriteLine($"Your score: {score}/{outof} ");
             Qnum++;
+
+            //the actual question part
             Console.WriteLine($"\nQuestion {Qnum}");
-            Console.WriteLine("Which of the following Maori word translates to 'Hello!' ?");
-            Console.WriteLine("a. aloha!\nb. talofa!\nc. kia ora!\n");
+            Console.WriteLine("Which of the following Maori word translates to 'My name is...' ?");
+            Console.WriteLine("a. ko toku ingoa...\nb. ingoa waitohu...\nc. ko wai tou ingoa...\n");
             Console.Write("Your answer: ");
             answer[i] = Console.ReadLine().ToUpper();
+            feedback = 0;
 
             
 
