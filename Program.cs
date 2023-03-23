@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.ComponentModel.Design;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
@@ -9,13 +10,13 @@ namespace TeReoMaoriQuiz
 {
     internal class Program
     {
-        
-         static void Main(string[] args)
+
+        static void Main(string[] args)
         {
             play();
-            
 
-         static void play()
+
+            static void play()
             { // start of play method
                 Console.WriteLine("Te Reo Maori Quiz");
                 Console.Write("Welcome!, please enter your name to start:  ");
@@ -23,7 +24,7 @@ namespace TeReoMaoriQuiz
                 Menu(name);
             } // end of play method 
 
-         static void Menu(string name)
+            static void Menu(string name)
             { // start of menu method, asking user the difficulty (easy, med, hard)
                 Console.WriteLine($"\nHello {name}!");
                 Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
@@ -47,9 +48,9 @@ namespace TeReoMaoriQuiz
                     }
                     else
                         do //start of while loop(it is looped so if the user enters an option not in the list
-                    { //this is to direct user to which difficulty he chose. 
-                        Console.Write("Please enter a valid option: ");
-                        num = Convert.ToInt32(Console.ReadLine());
+                        { //this is to direct user to which difficulty he chose. 
+                            Console.Write("Please enter a valid option: ");
+                            num = Convert.ToInt32(Console.ReadLine());
                             if (num == 1)
                             {
                                 Easy();
@@ -66,12 +67,12 @@ namespace TeReoMaoriQuiz
                             {
                                 Console.WriteLine("Goodbye!");
                             }
-                            
-                    } while (num != 1 && num != 2 && num != 3 && num != 4);
+
+                        } while (num != 1 && num != 2 && num != 3 && num != 4);
                 } //end of menu method
             }
         }
-        
+
         static void Easy()
         { // start of easy section
             Console.Clear();
@@ -80,7 +81,23 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("\nPress enter to start quiz...");
             Console.ReadLine(); //console.readline without a variable
 
-            
+            do
+            {
+                for (int i = 0; EasyQ.Length < 10;)
+                {
+                    Console.WriteLine(EasyQ[i]);
+                }
+            } while (i == 10);
+
+            /*switch(variable name)
+             
+            case variable:
+                what u want to run;
+                break;
+            case variable
+            */
+
+            /*
             String[] answer = new string[10] ;
             int feedback = 0, Qnum = 0, i = 0, score = 0, outof = 0;
             
@@ -210,7 +227,9 @@ namespace TeReoMaoriQuiz
                     i++;
                 }
             } while (answer[i] != "A" || answer[i] != "B" || answer[i] != "C");
+            */
 
+            //Question 3
 
 
         } // end of easy section
@@ -224,6 +243,11 @@ namespace TeReoMaoriQuiz
             Console.Clear();
             Console.WriteLine("Welcome to the Expert's Quiz!");
         } // end of hard section
+
+        string[] EasyQ = new string[5];
+            EasyQ[0] = { "veuvvjjva" };
+        
+
 
     }
 }
