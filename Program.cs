@@ -163,9 +163,54 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("a. ko toku ingoa...\nb. ingoa waitohu...\nc. ko wai tou ingoa...\n");
             Console.Write("Your answer: ");
             answer[i] = Console.ReadLine().ToUpper();
-            feedback = 0;
-
             
+            //if for user answer
+            if (answer[i] == "A")
+            {
+                feedback = 2; //2 means wrong
+                outof++;
+                i++;
+            }
+            else if (answer[i] == "B")
+            {
+                feedback = 1; //1 means correct
+                score++; //adding one point to the score
+                outof++;
+                i++;
+            }
+            else if (answer[i] == "C")
+            {
+                feedback = 2; //2 means worng
+                outof++; //out of is how many questions the user has answered so far
+                i++; //adding 1 so that the answer in the next question will be stored in answer[2] (second chunk of array)
+            }
+
+            do //if user inputs an invalid option
+            {
+                Console.WriteLine("Please enter a valid option: ");
+                answer[i] = Console.ReadLine().ToUpper();
+                if (answer[i] == "A")
+                {
+                    feedback = 2;
+                    outof++;
+                    i++;
+                }
+                else if (answer[i] == "B")
+                {
+                    feedback = 1;
+                    score++;
+                    outof++;
+                    i++;
+                }
+                else if (answer[i] == "C")
+                {
+                    feedback = 2;
+                    score++;
+                    outof++;
+                    i++;
+                }
+            } while (answer[i] != "A" || answer[i] != "B" || answer[i] != "C");
+
 
 
         } // end of easy section
