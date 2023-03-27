@@ -90,7 +90,7 @@ namespace TeReoMaoriQuiz
             //all the questions in an array
             string[] EasyQ = new string[5];
             EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            EasyQ[1] = ($"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}\nb. Ingoa waitohu {name}\nc. Ko wai tou ingoa {name}\n");
+            EasyQ[1] = ($"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}\nb. ko taku ingoa whānau ko {name}\nc. Ko wai tou ingoa {name}\n");
             EasyQ[2] = "333";
             EasyQ[3] = "444";
             EasyQ[4] = "555";
@@ -114,15 +114,21 @@ namespace TeReoMaoriQuiz
                         case "A":
                             Qnum++;
                             outof++;
+                            Console.WriteLine("Nice try! The correct answer was C.\nNote: aloha! actually means Hello in Hawaian. Press enter to continue...");
+                            Console.ReadLine();
                             break;
                         case "B":
                             Qnum++;
                             outof++;
+                            Console.WriteLine("Nice try! The correct answer was C.\nNote: talofa! actually means Hello in Samoan. Press enter to continue...");
+                            Console.ReadLine();
                             break;
-                        case "C":
+                        case "C": //correct
                             Qnum++;
                             score++;
                             outof++;
+                            Console.WriteLine("You are correct! \nPress enter to continue...");
+                            Console.ReadLine();
                             break;
                     }
                 }
@@ -147,8 +153,28 @@ namespace TeReoMaoriQuiz
                 }
                 else if (i == 2)//Question 3 
                 {
-                    Console.WriteLine("cca");
+                    
                 }
+                else if (i == 3)
+                {
+
+                }
+                else if (i ==4)
+                {
+
+                }
+                else
+                {
+                    do
+                    {
+                        if (answer != "A" || answer != "B" || answer != "C")
+                        {
+                            Console.Write("Please input a valid answer: ");
+                            answer = Console.ReadLine();
+                        }
+                    } while (answer != "A" || answer != "B" || answer != "C");
+                }
+                    
             }
 
 
