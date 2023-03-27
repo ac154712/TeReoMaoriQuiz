@@ -81,20 +81,35 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("\nPress enter to start quiz...");
             Console.ReadLine(); //console.readline without a variable
 
+            //all the questions in an array
+            string[] EasyQ = new string[4];
+            EasyQ[0] = "\nWhich of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
+            EasyQ[1] = "222";
+            EasyQ[2] = "333";
+            EasyQ[3] = "444";
+            EasyQ[4] = "555";
+
+            //displaying the questions to the user
+            string answer;
+            int i = 0, x = 0, Qnum = 0, score = 0, outof = 0;
             do
             {
-                for (int i = 0; EasyQ.Length < 10;)
+                for (i = 0; EasyQ.Length < 5; i++)
                 {
+                    Console.WriteLine($"Question {Qnum}");
+                    Console.WriteLine($"\nYour score: {score}/{outof}\n\n");
                     Console.WriteLine(EasyQ[i]);
                     Console.Write("\nType your answer here: ");
+                    answer[x]
 
+                    switch (EasyQ[i] )
+                    {
+
+                    }
                 }
-            } while (i == 10);
+            } while (i != 10);
 
-            //all the questions in an array
-            string[] EasyQ = new string[5];
-            EasyQ[0] = "\nWhich of the following Maori word translates to 'Hello!' ?";
-            EasyQ[1] = ""
+            
 
             //end of easy section
 
