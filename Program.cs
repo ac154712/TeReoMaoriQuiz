@@ -140,14 +140,20 @@ namespace TeReoMaoriQuiz
                             Qnum++;
                             score++;
                             outof++;
+                            Console.WriteLine("You are correct! Goodjob. \nPress enter to continue...");
+                            Console.ReadLine();
                             break;
                         case "B":
                             Qnum++;
                             outof++;
+                            Console.WriteLine("Unlucky, the correct answer was A. \nNote: 'ko taku ingoa whānau ko' actually means 'my surname is'. Press enter to continue...");
+                            Console.ReadLine();
                             break;
                         case "C":
                             Qnum++;
                             outof++;
+                            Console.WriteLine("Unlucky, the correct answer was A \nNote: 'Ko wai tou ingoa' actually means 'what is your name'. Press enter to continue...");
+                            Console.ReadLine();
                             break;
                     }
                 }
