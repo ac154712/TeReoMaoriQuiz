@@ -83,15 +83,15 @@ namespace TeReoMaoriQuiz
 
             //all the questions in an array
             string[] EasyQ = new string[4];
-            EasyQ[0] = "\nWhich of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            EasyQ[1] = "222";
+            EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
+            EasyQ[1] = ("Which of the following Maori word translates to 'My name is...' ?\n\na. ko toku ingoa...\\nb. ingoa waitohu...\\nc. ko wai tou ingoa...\\n");
             EasyQ[2] = "333";
             EasyQ[3] = "444";
             EasyQ[4] = "555";
 
             //displaying the questions to the user
-            string answer;
-            int i = 0, x = 0, Qnum = 0, score = 0, outof = 0;
+            string answer = "";
+            int i = 0, x = 0, Qnum = 0, score = 0, outof = 0, feedback = 0;
             do
             {
                 for (i = 0; EasyQ.Length < 5; i++)
@@ -100,18 +100,61 @@ namespace TeReoMaoriQuiz
                     Console.WriteLine($"\nYour score: {score}/{outof}\n\n");
                     Console.WriteLine(EasyQ[i]);
                     Console.Write("\nType your answer here: ");
-                    answer[x]
+                    answer = Console.ReadLine().ToUpper();
 
-                    switch (EasyQ[i] )
+                    if (i == 0) //Question 1
                     {
-
+                        switch (answer) 
+                        {
+                            case "A":
+                                Qnum++;
+                                outof++;
+                                feedback = 1; // 2 means wrong
+                                break;
+                            case "B":
+                                Qnum++;
+                                outof++;
+                                feedback = 2; // 2 means wrong
+                                break;
+                            case "C":
+                                Qnum++;
+                                score++;
+                                outof++;
+                                feedback = 1; // 1 means correct
+                                break;
+                        }
                     }
+                    else if (i == 1) //Question 2
+                    {
+                        switch (answer)
+                        {
+                            case "A":
+                                Qnum++;
+                                outof++;
+                                feedback = 1; // 2 means wrong
+                                break;
+                            case "B":
+                                Qnum++;
+                                outof++;
+                                feedback = 2; // 2 means wrong
+                                break;
+                            case "C":
+                                Qnum++;
+                                score++;
+                                outof++;
+                                feedback = 1; // 1 means correct
+                                break;
+                        }
+                    }
+                    else if (i == 2) //Question 3
                 }
             } while (i != 10);
 
             
 
             //end of easy section
+
+            // -----------------------------------OLD CODE OF EASY -----------------------------------
 
             /*switch(variable name)
 
@@ -253,7 +296,7 @@ namespace TeReoMaoriQuiz
             } while (answer[i] != "A" || answer[i] != "B" || answer[i] != "C");
             */
 
-            //Question 3
+            //----------------------------- END OF EASY OLD CODE --------------------------------------
 
 
         } // end of easy section
