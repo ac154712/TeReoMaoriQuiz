@@ -80,21 +80,23 @@ namespace TeReoMaoriQuiz
         }
 
         static void Easy(string name)
-        { // start of easy section
+        { //start of easy section
             Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
             Console.WriteLine("This is a 5 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given. Take your time\nand goodluck!");
             Console.WriteLine("\nPress enter to start quiz...");
             Console.ReadLine(); //no variable so user just have to press enter
 
-            //all the questions in an array
+
+            //all the easy questions in an array
             string[] EasyQ = new string[5];
             EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            EasyQ[1] = ($"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}\nb. ko taku ingoa whānau ko {name}\nc. Ko wai tou ingoa {name}\n");
+            EasyQ[1] = ($"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}\nb. ko taku ingoa whānau ko {name}\nc. Ko wai tou ingoa {name}");
             EasyQ[2] = "333";
             EasyQ[3] = "444";
             EasyQ[4] = "555";
         
+
             //displaying the questions to the user
             string answer;
             int Qnum = 1, score = 0, outof = 0; // Qnum is set so it starts with 1
@@ -106,6 +108,18 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine(EasyQ[i]);
                 Console.Write("\nType your answer here: ");
                 answer = Console.ReadLine().ToUpper();
+                do
+                {
+                    if (answer != "A" && answer != "B" && answer != "C")
+                    {
+                        Console.Write("Please input a valid answer: ");
+                        answer = Console.ReadLine().ToUpper();
+                        if (answer == "A" || answer == "B" || answer == "C")
+                        {
+                            break;
+                        }
+                    }
+                } while (answer != "A" && answer != "B" && answer != "C");
 
                 if (i == 0) //Question 1
                 {
@@ -114,20 +128,20 @@ namespace TeReoMaoriQuiz
                         case "A":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("Nice try! The correct answer was C.\nNote: aloha! actually means Hello in Hawaian. Press enter to continue...");
+                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: aloha! actually means Hello in Hawaian. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "B":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("Nice try! The correct answer was C.\nNote: talofa! actually means Hello in Samoan. Press enter to continue...");
+                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: talofa! actually means Hello in Samoan. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "C": //correct
                             Qnum++;
                             score++;
                             outof++;
-                            Console.WriteLine("You are correct! \nPress enter to continue...");
+                            Console.WriteLine("\nYou are correct! \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                     }
@@ -140,19 +154,19 @@ namespace TeReoMaoriQuiz
                             Qnum++;
                             score++;
                             outof++;
-                            Console.WriteLine("You are correct! Goodjob. \nPress enter to continue...");
+                            Console.WriteLine("\nYou are correct! Goodjob. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "B":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("Unlucky, the correct answer was A. \nNote: 'ko taku ingoa whānau ko' actually means 'my surname is'. Press enter to continue...");
+                            Console.WriteLine("\nUnlucky, the correct answer was A. \nNote: 'ko taku ingoa whānau ko' actually means 'my surname is'. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "C":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("Unlucky, the correct answer was A \nNote: 'Ko wai tou ingoa' actually means 'what is your name'. Press enter to continue...");
+                            Console.WriteLine("\nUnlucky, the correct answer was A \nNote: 'Ko wai tou ingoa' actually means 'what is your name'. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                     }
@@ -168,19 +182,7 @@ namespace TeReoMaoriQuiz
                 else if (i ==4)
                 {
 
-                }
-                else
-                {
-                    do
-                    {
-                        if (answer != "A" || answer != "B" || answer != "C")
-                        {
-                            Console.Write("Please input a valid answer: ");
-                            answer = Console.ReadLine();
-                        }
-                    } while (answer != "A" || answer != "B" || answer != "C");
-                }
-                    
+                }  
             }
 
 
