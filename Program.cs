@@ -86,16 +86,25 @@ namespace TeReoMaoriQuiz
                 for (int i = 0; EasyQ.Length < 10;)
                 {
                     Console.WriteLine(EasyQ[i]);
+                    Console.Write("\nType your answer here: ");
+
                 }
             } while (i == 10);
 
+            //all the questions in an array
+            string[] EasyQ = new string[5];
+            EasyQ[0] = "\nWhich of the following Maori word translates to 'Hello!' ?";
+            EasyQ[1] = ""
+
+            //end of easy section
+
             /*switch(variable name)
-             
-            case variable:
-                what u want to run;
-                break;
-            case variable
-            */
+
+          case variable:
+              what u want to run;
+              break;
+          case variable
+          */
 
             /*
             String[] answer = new string[10] ;
@@ -244,8 +253,7 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("Welcome to the Expert's Quiz!");
         } // end of hard section
 
-        string[] EasyQ = new string[5];
-            EasyQ[0] = { "veuvvjjva" };
+        
         
 
 
