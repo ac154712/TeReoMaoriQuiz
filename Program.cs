@@ -78,8 +78,8 @@ namespace TeReoMaoriQuiz
             //all the easy questions in an array
             string[] EasyQ = new string[5];
             EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            EasyQ[1] = ($"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}.\nb. ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.");
-            EasyQ[2] = "333";
+            EasyQ[1] = $"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
+            EasyQ[2] = "Which of the following Maori word translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
             EasyQ[3] = "444";
             EasyQ[4] = "555";
 
@@ -162,7 +162,30 @@ namespace TeReoMaoriQuiz
                 }
                 else if (i == 2)//Question 3 
                 {
-
+                    switch (answer)
+                    {
+                        case "A": //correct
+                            Qnum++;
+                            outof++;
+                            score++;
+                            Console.WriteLine("\nCorrect! OMGGGG!!!.\nNote: All three choices are actually correct lol. \n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                        case "B": //correct
+                            Qnum++;
+                            score++;
+                            outof++;
+                            Console.WriteLine("\nCorrect! OMGGGG!!!.\nNote: All three choices are actually correct lol. \n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                        case "C": //correct
+                            Qnum++;
+                            score++;
+                            outof++;
+                            Console.WriteLine("\nCorrect! OMGGGG!!!.\nNote: All three choices are actually correct lol. \n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                    }
                 }
                 else if (i == 3)//Question 4
                 {
