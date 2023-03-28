@@ -80,7 +80,7 @@ namespace TeReoMaoriQuiz
             EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
             EasyQ[1] = $"Which of the following Maori word translates to 'My name is... (your name)' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
             EasyQ[2] = "Which of the following Maori word translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
-            EasyQ[3] = "444";
+            EasyQ[3] = "Which of the following Maori word translates to 'Happy Birthday!' ?\n\na. Hau`oli la Hanau!\nb. Rā Whānau ki a Koe!\nc. Āhea tō rā whānau!";
             EasyQ[4] = "555";
 
 
@@ -117,13 +117,13 @@ namespace TeReoMaoriQuiz
                         case "A":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: aloha! actually means Hello in Hawaian. \n\nPress enter to continue...");
+                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: aloha! actually means 'Hello!' in Hawaian. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "B":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: talofa! actually means Hello in Samoan. \n\nPress enter to continue...");
+                            Console.WriteLine("\nNice try! The correct answer was C.\nNote: talofa! actually means 'Hello!' in Samoan. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "C": //correct
@@ -189,7 +189,28 @@ namespace TeReoMaoriQuiz
                 }
                 else if (i == 3)//Question 4
                 {
-
+                    switch (answer)
+                    {
+                        case "A":
+                            Qnum++;
+                            outof++;
+                            Console.WriteLine("\nNice try! The correct answer was B.\nNote: Hau`oli la Hanau! actually means 'Happy Birthday!' but in Hawaian. \n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                        case "B": // correct
+                            Qnum++;
+                            score++;
+                            outof++;
+                            Console.WriteLine("\nYou are correct, nice work!\n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                        case "C": 
+                            Qnum++;
+                            outof++;
+                            Console.WriteLine("\nNice try! The correct answer was B.\nNote: Āhea tō rā whānau! actually means 'When is your birthday!' in Maori. \n\nPress enter to continue...");
+                            Console.ReadLine();
+                            break;
+                    }
                 }
                 else if (i == 4)//Question 5
                 {
