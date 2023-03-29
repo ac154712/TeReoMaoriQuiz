@@ -81,7 +81,7 @@ namespace TeReoMaoriQuiz
             EasyQ[1] = $"Which of the following Maori word translates to 'My name is...' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
             EasyQ[2] = "Which of the following Maori word translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
             EasyQ[3] = "Which of the following Maori word translates to 'Happy Birthday!' ?\n\na. Hau`oli la Hanau!\nb. Rā Whānau ki a Koe!\nc. Āhea tō rā whānau!";
-            EasyQ[4] = "Which of the following Maori word translates to 'I love you' ?\n\na. He aroha tāku mōku\nb. he aroha nui tāku mōu \nc. ";
+            EasyQ[4] = "Which of the following Maori word translates to 'I love you' ?\n\na. He aroha tāku mōku\nb. he aroha nui tāku mōu \nc. he pai ki a au te waehere ";
 
 
             //displaying the questions to the user
@@ -204,7 +204,7 @@ namespace TeReoMaoriQuiz
                             Console.WriteLine("\nYou are correct, nice work!\n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
-                        case "C": 
+                        case "C":
                             Qnum++;
                             outof++;
                             Console.WriteLine("\nNice try! The correct answer was B.\nNote: Āhea tō rā whānau! actually means 'When is your birthday!' in Maori. \n\nPress enter to continue...");
@@ -219,7 +219,7 @@ namespace TeReoMaoriQuiz
                         case "A":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("\nNice try! The correct answer was B.\nNote: 'He aroha tāku mōku' actually means 'I love me' in Maori. \n\nPress enter to continue...");
+                            Console.WriteLine("\nUnlucky, the correct answer was B.\nNote: 'He aroha tāku mōku' actually means 'I love me' in Maori. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
                         case "B": // correct
@@ -229,17 +229,31 @@ namespace TeReoMaoriQuiz
                             Console.WriteLine("\nYou are correct, nice work!\n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
-                        case "C": 
+                        case "C":
                             Qnum++;
                             outof++;
-                            Console.WriteLine("\nNice try! The correct answer was B.\nNote: 'he pai ki a au te waehere' actually means 'I love coding' in Maori. \n\nPress enter to continue...");
+                            Console.WriteLine("\nUnlucky, the correct answer was B.\nNote: 'he pai ki a au te waehere' actually means 'I love coding' in Maori. \n\nPress enter to continue...");
                             Console.ReadLine();
                             break;
+                    }
                 }
-            } 
-        } //end of easy section
 
-
+                // quiz results
+                char yeno = 'Y';
+                Console.WriteLine("You finished the Easy Quiz, nice job!");
+                Console.WriteLine($"Your score was {score}/{outof}");
+                if (score >= 3)
+                {
+                    Console.WriteLine("You passed!");
+                }
+                else if (score > 3)
+                {
+                    Console.WriteLine("You failed.");
+                }
+                Console.WriteLine("Do you want to continue (Y or N): ");
+                yeno = Convert.ToChar().Console.ReadLine();
+            } //end of easy section
+        }
         static void Medium()
         { // start of medium section
             Console.Clear();
