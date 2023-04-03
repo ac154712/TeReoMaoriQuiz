@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.Xml.Linq;
 
 namespace TeReoMaoriQuiz
 {
@@ -71,7 +72,7 @@ namespace TeReoMaoriQuiz
             Console.Clear();
             int age = 0;
             string beloved = "";
-            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions if you don't want to.");
+            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions if you don't want to, just press enter to skip.");
             Console.WriteLine("The answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
             Console.Write("\nHow old are you? : ");
             age = Convert.ToInt32(Console.ReadLine());
@@ -177,12 +178,194 @@ namespace TeReoMaoriQuiz
             Console.Clear();
             Console.WriteLine("Welcome to the Intermediate/Standard Quiz!");
             Console.WriteLine("This no longer just makes the user translate english words to Maori but it will now also test about your general knowledge of Maori lunguage.");
+
+            string[] EasyQ = new string[5]; //all the easy questions in an array
+            EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
+            EasyQ[1] = $"Which of the following Maori word translates to 'My name is...' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
+            EasyQ[2] = "Which of the following Maori word translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
+            EasyQ[3] = $"Which of the following Maori word translates to 'Happy Birthday!' ?\n\na. Hau`oli {age + 1}th la Hanau  {name}!\nb. hari {age + 1}th rā Whānau ki a Koe {name}!\nc. Āhea tō {age + 1}th rā whānau {name}!";
+            EasyQ[4] = $"Which of the following Maori word translates to 'I love you' ?\n\na. He aroha tāku mōku {beloved}\nb. he aroha nui tāku mōu {beloved} \nc. he pai ki a au te waehere {beloved}";
+
+            string[] EasyA = new string[5];
+            EasyA[0] = "C";
+            EasyA[1] = "A";
+            EasyA[2] = "A";
+            EasyA[3] = "B";
+            EasyA[4] = "B";
+            //{ "C, A, A, B, B" };
+            string answer;
+            int score = 0, outof = 0;
+            for (int i = 0; i < 5; i++) //displaying the questions to the user
+            {
+                Console.Clear();
+                Console.WriteLine($"Your score: {score}/{outof}\n\n");
+                Console.WriteLine($"Question {i + 1}:\n\n{EasyQ[i]}");
+                Console.Write("\nType your answer here: ");
+                answer = Console.ReadLine().ToUpper();
+
+                do //checks for invalid inputs
+                {
+                    if (answer != "A" && answer != "B" && answer != "C")
+                    {
+                        Console.Write("Please input a valid answer: ");
+                        answer = Console.ReadLine().ToUpper();
+                        if (answer == "A" || answer == "B" || answer == "C")
+                        {
+                            break; //breaks the loop and goes to next line
+                        }
+                    }
+                } while (answer != "A" && answer != "B" && answer != "C");
+
+                if (answer == EasyA[i])
+                {
+                    score++;
+                    outof++;
+                    Console.WriteLine("\nYour answer was correct!");
+                }
+                else if (answer != EasyA[i])
+                {
+                    outof++;
+                    Console.WriteLine($"\nUnlucky the correct answer was {EasyA[i]}\n");
+                }
+                Console.WriteLine("Please enter any key to continue...");
+                Console.ReadKey();
+
+            } //end of for loop
+
+            // quiz results
+            char retry = 'Y';
+            Console.Clear();
+            Console.WriteLine("You finished the Easy Quiz, nice job!");
+            Console.WriteLine($"\nYour score was {score}/{outof}");
+            if (score >= 3)
+            {
+                Console.WriteLine("Congratulations, you passed!");
+            }
+            else if (score < 3)
+            {
+                Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
+            }
+            Console.WriteLine("\n\nDo you want to start another quiz? (Y or N): ");
+            retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
+
+            do //checks for invalid inputs
+            {
+                if (retry != 'Y' && retry != 'N')
+                {
+                    Console.Write("Please input a valid answer: ");
+                    answer = Console.ReadLine().ToUpper();
+                    if (retry == 'Y' || retry == 'N')
+                    {
+                        break; //breaks the loop and goes to next line
+                    }
+                }
+            } while (retry != 'Y' && retry != 'N');
+
+            switch (retry)
+            {
+                case 'Y':
+                    Menu(name);
+                    break;
+                case 'N':
+                    break;
+            }
         } // end of medium quiz
 
         static void Hard()
         { // start of hard quiz
             Console.Clear();
             Console.WriteLine("Welcome to the Expert's Quiz!");
+
+            string[] EasyQ = new string[5]; //all the easy questions in an array
+            EasyQ[0] = "111";
+            EasyQ[1] = "222";
+            EasyQ[2] = "333";
+            EasyQ[3] = "444";
+            EasyQ[4] = "555";
+
+            string[] HardA = new string[5];
+            HardA[0] = "C";
+            HardA[1] = "A";
+            HardA[2] = "A";
+            HardA[3] = "B";
+            HardA[4] = "B";
+            
+            string answer;
+            int score = 0, outof = 0;
+            for (int i = 0; i < 5; i++) //displaying the questions to the user
+            {
+                Console.Clear();
+                Console.WriteLine($"Your score: {score}/{outof}\n\n");
+                Console.WriteLine($"Question {i + 1}:\n\n{EasyQ[i]}");
+                Console.Write("\nType your answer here: ");
+                answer = Console.ReadLine().ToUpper();
+
+                do //checks for invalid inputs
+                {
+                    if (answer != "A" && answer != "B" && answer != "C")
+                    {
+                        Console.Write("Please input a valid answer: ");
+                        answer = Console.ReadLine().ToUpper();
+                        if (answer == "A" || answer == "B" || answer == "C")
+                        {
+                            break; //breaks the loop and goes to next line
+                        }
+                    }
+                } while (answer != "A" && answer != "B" && answer != "C");
+
+                if (answer == EasyA[i])
+                {
+                    score++;
+                    outof++;
+                    Console.WriteLine("\nYour answer was correct!");
+                }
+                else if (answer != EasyA[i])
+                {
+                    outof++;
+                    Console.WriteLine($"\nUnlucky the correct answer was {EasyA[i]}\n");
+                }
+                Console.WriteLine("Please enter any key to continue...");
+                Console.ReadKey();
+
+            } //end of for loop
+
+            // quiz results
+            char retry = 'Y';
+            Console.Clear();
+            Console.WriteLine("You finished the Easy Quiz, nice job!");
+            Console.WriteLine($"\nYour score was {score}/{outof}");
+            if (score >= 3)
+            {
+                Console.WriteLine("Congratulations, you passed!");
+            }
+            else if (score < 3)
+            {
+                Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
+            }
+            Console.WriteLine("\n\nDo you want to start another quiz? (Y or N): ");
+            retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
+
+            do //checks for invalid inputs
+            {
+                if (retry != 'Y' && retry != 'N')
+                {
+                    Console.Write("Please input a valid answer: ");
+                    answer = Console.ReadLine().ToUpper();
+                    if (retry == 'Y' || retry == 'N')
+                    {
+                        break; //breaks the loop and goes to next line
+                    }
+                }
+            } while (retry != 'Y' && retry != 'N');
+
+            switch (retry)
+            {
+                case 'Y':
+                    Menu(name);
+                    break;
+                case 'N':
+                    break;
+            }
         } // end of hard quiz
 
 
