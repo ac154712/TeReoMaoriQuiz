@@ -66,50 +66,60 @@ namespace TeReoMaoriQuiz
         { //start of easy quiz
             Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
-            Console.WriteLine("This is a 5 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given. Take your time\nand goodluck!");
+            Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the letter of the answer. Take your time\nand goodluck!");
             Console.WriteLine("\nPress any key to start ...");
             Console.ReadKey(); 
 
             Console.Clear();
-            int age = 0;
-            string beloved = "";
-            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions if you don't want to, just type skip to skip the question.");
-            Console.WriteLine("The answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
+            int age = 17;
+            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions if you don't want to. JUST TYPE SKIP TO SKIP THE QUESTION.");
+            Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
             Console.Write("\nHow old are you? : ");
-            string strAge = Console.ReadLine();
-            if (strAge == "skip")
+            string strAge = Console.ReadLine().ToUpper();
+            if (strAge == "SKIP")
             {
                 age = 17;
-                Console.WriteLine("Press any key to skip.");
-                Console.ReadKey();
             }
             else
                 age = Convert.ToInt32(strAge);
-
-            Console.Write("\nWho do you love the most? : ");
-            beloved = Console.ReadLine();
-
-            if (beloved == "skip")
+            Console.Write("\nWhat country are you from? : ");
+            string country = Console.ReadLine().ToUpper();
+            if (country == "SKIP")
             {
-                beloved = "Mom";
-                Console.WriteLine("Press any key to skip.");
-                Console.ReadKey();
+                country = "New Zealand";
+            }
+            Console.Write("\nWho is a person you love? : ");
+            string beloved = Console.ReadLine().ToUpper();
+            if (beloved == "SKIP")
+            {
+                beloved = "Jesus";
+            }
+            Console.Write("\nWhat is your favorite game to play? : ");
+            string favGame = Console.ReadLine().ToUpper();
+            if (favGame == "SKIP")
+            {
+                favGame = "Football";
             }
             Console.WriteLine("\nPress any key to start the quiz...");
             Console.ReadKey();
 
-            string[] EasyQ = new string[5]; //all the easy questions in an array
+            string[] EasyQ = new string[10]; //all the easy questions in an array
             EasyQ[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            EasyQ[1] = $"Which of the following Maori word translates to 'My name is...' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
-            EasyQ[2] = "Which of the following Maori word translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
-            EasyQ[3] = $"Which of the following Maori word translates to 'Happy Birthday!' ?\n\na. Hau`oli {age+1}th la Hanau  {name}!\nb. hari {age + 1}th rā Whānau ki a Koe {name}!\nc. Āhea tō {age + 1}th rā whānau {name}!";
-            EasyQ[4] = $"Which of the following Maori word translates to 'I love you' ?\n\na. He aroha tāku mōku {beloved}\nb. he aroha nui tāku mōu {beloved} \nc. he pai ki a au te waehere {beloved}";
+            EasyQ[1] = $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {name}.\nb. Ko taku ingoa whānau ko {name}.\nc. Ko wai tou ingoa {name}.";
+            EasyQ[2] = "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Kia ora.\nb. Ata mārie.\nc. Mōrena.";
+            EasyQ[3] = $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {age+1}th la Hanau  {name}!\nb. hari {age + 1}th rā Whānau ki a Koe {name}!\nc. Āhea tō {age + 1}th rā whānau {name}!";
+            EasyQ[4] = $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {beloved}.\nb. he aroha nui tāku mōu {beloved}. \nc. he pai ki a au te waehere {beloved}.";
+            EasyQ[5] = "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu";
+            EasyQ[6] = $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {country}.\nb. 'ou te nofo i {country}. \nc. E noho ana ahau i roto i {country}.";
+            EasyQ[7] = "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui";
+            EasyQ[8] = $"Which of the following word/phrases translates to 'I am {age} years old.' ?\n\na. He {age} au makahiki.\nb. E {age} tau te pakeke. \nc.E {age} ou tausaga";
+            EasyQ[9] = $"Which of the following word/phrases translates to '{favGame} is the word game ever.' ?\n\na. Ko te {favGame} te kai pai rawa atu.\nb. Ko te {favGame} te keemu kino rawa atu. \nc. {favGame} ole ta'aloga sili ona leaga.";
 
-            string[] EasyA = { "C", "A", "A", "B", "B" }; //all answers in an array
+            string[] EasyA = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
 
             string answer;
             int score = 0, outof = 0;
-            for (int i = 0; i < 5; i++) //displaying the questions to the user
+            for (int i = 0; i < 10; i++) //displaying the questions to the user
             {
                 Console.Clear();
                 Console.WriteLine($"Your score: {score}/{outof}\n\n");
@@ -193,19 +203,23 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("\nPress any key to start...");
             Console.ReadKey();
 
-            string[] MedQ = new string[5]; //all the easy questions in an array
-            MedQ[0] = "\nHow many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32\n";
-            MedQ[1] = "How many people in New Zealand speak Maori?\na. 100,000\nb. 250,000\nc. 500,000\n";
-            MedQ[2] = "\nWhat is a 'haka' in Maori culture?\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo\n";
-            MedQ[3] = "\nWhat is a 'wharenui' in Maori culture?\na. A traditional Maori meeting house\nb. A type of Maori food\nc. A Maori musical instrument\n";
-            MedQ[4] = "\nWhat is the name for the traditional Maori nose touching greeting?\na. Wharenui\nb. Haka\nc. Hongi\n";
-            MedQ[5] = "How many vowels does the Maori language have?\r\nA) 5\r\nB) 6\nC) 7\n) ";
+            string[] MedQ = new string[10]; //all the easy questions in an array
+            MedQ[0] = "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32";
+            MedQ[1] = "How many people in New Zealand speak Maori?\n\na. 100,000\nb. 250,000\nc. 500,000";
+            MedQ[2] = "What is a 'haka' in Maori culture?\n\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo";
+            MedQ[3] = "Which of the following is not a color?\n\na. Kakariki'\nb. Panga\nc. Mawhero";
+            MedQ[4] = "What is the name for the traditional Maori nose touching greeting?\n\na. Wharenui\nb. Haka\nc. Hongi";
+            MedQ[5] = "How many vowels does the Maori language have?\n\na. 5\r\nb. 6\nc. 7";
+            MedQ[6] = "What is the name for the Maori alphabet?\n\na. Te Taura Whiri\nb. Te Reo Maori\nc. Te Arapu Maori";
+            MedQ[7] = "Which of the following is a Maori dialect?\n\na. Te Reo Pakeha\r\nb. Ngapuhi\nc. Tokelauan";
+            MedQ[8] = "Which of the following is not a correct Maori word for a food item?\n\na. kumara\nb. pāua\nc. whare";
+            MedQ[9] = "What is the name of the haka performed by the New Zealand national rugby team before matches?\n\na.Kapa Haka\nb. Ka Mare\nc. Haka Tuturu";
 
-            string[] MedA = { "C", "A", "B", "A", "C", "A"}; // all answers in an array
+            string[] MedA = { "C", "A", "B", "B", "C", "A", "C", "B", "C", "C"}; // all answers in an array
 
             string answer;
             int score = 0, outof = 0;
-            for (int i = 0; i < 5; i++) //displaying the questions to the user
+            for (int i = 0; i < 10; i++) //displaying the questions to the user
             {
                 Console.Clear();
                 Console.WriteLine($"Your score: {score}/{outof}\n\n");
@@ -285,18 +299,23 @@ namespace TeReoMaoriQuiz
             Console.Clear();
             Console.WriteLine("Welcome to the Expert's Quiz!");
 
-            string[] HardQ = new string[5]; //all the easy questions in an array
-            HardQ[0] = "\nWhat is the name for the Maori language commission?\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu\r\nAnswer: A) Te Taura Whiri i te Reo Maori\n";
-            HardQ[1] = "222";
-            HardQ[2] = "333";
-            HardQ[3] = "444";
-            HardQ[4] = "555";
+            string[] HardQ = new string[10]; //all the easy questions in an array
+            HardQ[0] = "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu";
+            HardQ[1] = "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi";
+            HardQ[2] = "";
+            HardQ[3] = "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri";
+            HardQ[4] = "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo";
+            HardQ[5] = "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua";
+            HardQ[6] = "Which of the following is a common feature of Maori phonology?\n\na. Tone\nb. Final consonants\nc. Nasal vowels";
+            HardQ[7] = "Which of the following is a correct translation for the Maori word 'tino rangatiratanga'?\n\na. Sovereignty and self-determination\nb. Wisdom and understanding\nc. Respect and honory";
+            HardQ[8] = "Which of the following is the correct pronunciation for the Maori word 'karakia'?\n\na. kah-rah-kee-ah\nb. kah-rah-kyah\nc. kuh-rah-kyah";
+            HardQ[9] = "What is the name for the Maori language revitalization program launched in 1982?\n\na. Te Aho Matua\nb. Te Reo Maori\nc. Kohanga Reo";
 
-            string[] HardA = { "A", "" }; //all answers in an array
+            string[] HardA = { "A", "C", "B", "A", "B", "C", "A", "A", "A", "C" }; //all answers in an array
             
             string answer;
             int score = 0, outof = 0;
-            for (int i = 0; i < 5; i++) //displaying the questions to the user
+            for (int i = 0; i < 10; i++) //displaying the questions to the user
             {
                 Console.Clear();
                 Console.WriteLine($"Your score: {score}/{outof}\n\n");
