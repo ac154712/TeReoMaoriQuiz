@@ -1,8 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Reflection.Metadata.Ecma335;
-using System.Xml.Linq;
-
-namespace TeReoMaoriQuiz
+﻿namespace TeReoMaoriQuiz
 {
     internal class Program
     {
@@ -115,7 +111,7 @@ namespace TeReoMaoriQuiz
             Easy_Questions[6] = $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.";
             Easy_Questions[7] = "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui";
             Easy_Questions[8] = $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga";
-            Easy_Questions[9] = $"Which of the following word/phrases translates to '{user_fav_game} is the word game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga.";
+            Easy_Questions[9] = $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga.";
 
             string[] Easy_Answers = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
 
@@ -194,6 +190,7 @@ namespace TeReoMaoriQuiz
                     Menu(user_name);
                     break;
                 case 'N':
+                    Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
         } //end of easy quiz
@@ -294,6 +291,7 @@ namespace TeReoMaoriQuiz
                     Menu(user_name);
                     break;
                 case 'N':
+                    Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
         } // end of medium quiz
@@ -395,6 +393,7 @@ namespace TeReoMaoriQuiz
                     Menu(user_name);
                     break;
                 case 'N':
+                    Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
         } // end of hard quiz
