@@ -168,7 +168,7 @@
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
-            Console.WriteLine("\n\nDo you want to start another quiz? (Y or N): ");
+            Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
             retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
 
             do //checks for invalid inputs
@@ -269,7 +269,7 @@
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
-            Console.WriteLine("\n\nDo you want to start another quiz? (Y or N): ");
+            Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
             retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
 
             do //checks for invalid inputs
@@ -371,7 +371,7 @@
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
-            Console.WriteLine("\n\nDo you want to start another quiz? (Y or N): ");
+            Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
             retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
 
             do //checks for invalid inputs
