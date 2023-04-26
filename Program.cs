@@ -70,34 +70,26 @@
 
             Console.Clear();
             int user_age;
-            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. JUST TYPE SKIP TO SKIP THE QUESTION.");
+            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. JUST TYPE 'SKIP' TO SKIP THE QUESTION.");
             Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
             Console.Write("\nHow old are you? : ");
             string strAge = Console.ReadLine().ToUpper(); //ToUpper so that it capitalises user input
             if (strAge == "SKIP") //if user type skip, then default age is 17 (same goes for the rest)
-            {
                 user_age = 17;
-            }
             else
                 user_age = Convert.ToInt32(strAge);
             Console.Write("What country are you from? : ");
             string user_country = Console.ReadLine().ToUpper();
             if (user_country == "SKIP")
-            {
                 user_country = "New Zealand";
-            }
             Console.Write("Who is a person you love? : ");
             string user_beloved = Console.ReadLine().ToUpper();
             if (user_beloved == "SKIP")
-            {
-                user_beloved = "Jesus";
-            }
+                user_beloved = "Mom";
             Console.Write("What is your favorite game (videogame/sport) to play? : ");
             string user_fav_game = Console.ReadLine().ToUpper(); 
             if (user_fav_game == "SKIP")
-            {
                 user_fav_game = "Football";
-            }
             Console.WriteLine("\nPress any key to start the quiz...");
             Console.ReadKey();
 
@@ -125,19 +117,7 @@
                 Console.WriteLine($"Question {i + 1}:\n\n{Easy_Questions[i]}"); // i starts at 0 and so forth so it has +1
                 Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper(); //toupper capitalises user input
-
-                do //checks for invalid inputs
-                {
-                    if (user_answer != "A" && user_answer != "B" && user_answer != "C") // if user_answer does not match A,B,C, it tells user to input a valid answer 
-                    {
-                        Console.Write("Please input a valid answer: ");
-                        user_answer = Console.ReadLine().ToUpper();
-                        if (user_answer == "A" || user_answer == "B" || user_answer == "C")
-                        {
-                            break; //breaks the loop and goes to next line
-                        }
-                    }
-                } while (user_answer != "A" && user_answer != "B" && user_answer != "C"); //keeps doing this as long as it doesn't equal to A,B or C
+                user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
 
                 if (user_answer == Easy_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
                 {
@@ -152,11 +132,9 @@
                 }
                 Console.WriteLine("Please enter any key to continue...");
                 Console.ReadKey();
-
             } //end of for loop
 
             // quiz results
-            char retry;
             Console.Clear();
             Console.WriteLine($"You finished the Easy Quiz, nice job {user_name}!");
             Console.WriteLine($"\nYour score was {user_score}/{outof}.");
@@ -164,32 +142,20 @@
             {
                 Console.WriteLine("Congratulations, you passed!");
             }
-            else if (user_score < 5) // if user_score less than 5
+            else if (user_score < 6) // if user_score less than 6
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
             Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
-            retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
-
-            do //checks for invalid inputs
-            {
-                if (retry != 'Y' && retry != 'N')
-                {
-                    Console.Write("Please input a valid answer: ");
-                    retry = Convert.ToChar(Console.ReadLine().ToUpper());
-                    if (retry == 'Y' || retry == 'N')
-                    {
-                        break; //breaks the loop and goes to next line
-                    }
-                }
-            } while (retry != 'Y' && retry != 'N');
+            string retry = Console.ReadLine().ToUpper(); // converts to char and to upper
+            retry = ValidityCheckerYN(retry); //method at bottom
 
             switch (retry) // if Y it goes back to menu, if N it breaks = end
             {
-                case 'Y':
+                case "Y":
                     Menu(user_name);
                     break;
-                case 'N':
+                case "N":
                     Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
@@ -227,19 +193,7 @@
                 Console.WriteLine($"Question {i + 1}:\n\n{Medium_Questions[i]}");
                 Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper();
-
-                do //checks for invalid inputs
-                {
-                    if (user_answer != "A" && user_answer != "B" && user_answer != "C")
-                    {
-                        Console.Write("Please input a valid answer: ");
-                        user_answer = Console.ReadLine().ToUpper();
-                        if (user_answer == "A" || user_answer == "B" || user_answer == "C")
-                        {
-                            break; //breaks the loop and goes to next line
-                        }
-                    }
-                } while (user_answer != "A" && user_answer != "B" && user_answer != "C"); // looped as long as it doesn't match ABC
+                user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
 
                 if (user_answer == Medium_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
                 {
@@ -257,7 +211,6 @@
             } //end of for loop
 
             // quiz results
-            char retry;
             Console.Clear();
             Console.WriteLine($"You finished the Easy Quiz, nice job {user_name}!");
             Console.WriteLine($"\nYour score was {user_score}/{outof}.");
@@ -265,32 +218,20 @@
             {
                 Console.WriteLine("Congratulations, you passed!");
             }
-            else if (user_score < 5) // if user_score less than 5, it tells user they failed
+            else if (user_score < 6) // if user_score less than 6, it tells user they failed
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
             Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
-            retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
-
-            do //checks for invalid inputs
-            {
-                if (retry != 'Y' && retry != 'N')
-                {
-                    Console.Write("Please input a valid answer: ");
-                    retry = Convert.ToChar(Console.ReadLine().ToUpper());
-                    if (retry == 'Y' || retry == 'N')
-                    {
-                        break; //breaks the loop and goes to next line
-                    }
-                }
-            } while (retry != 'Y' && retry != 'N');
+            string retry = Console.ReadLine().ToUpper(); // converts to char and to upper
+            retry = ValidityCheckerYN(retry); //method at bottom
 
             switch (retry) // if Y it goes back to menu, if N it breaks = end
             {
-                case 'Y':
+                case "Y":
                     Menu(user_name);
                     break;
-                case 'N':
+                case "N":
                     Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
@@ -307,7 +248,7 @@
             string[] Hard_Questions = new string[10]; //all the easy questions in an array
             Hard_Questions[0] = "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu";
             Hard_Questions[1] = "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi";
-            Hard_Questions[2] = "";
+            Hard_Questions[2] = "Which of the following is a Maori vowel?\n\na. /ei/\r\nb. /i/\r\nc. /ai/";
             Hard_Questions[3] = "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri";
             Hard_Questions[4] = "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo";
             Hard_Questions[5] = "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua";
@@ -328,19 +269,7 @@
                 Console.WriteLine($"Question {i + 1}:\n\n{Hard_Questions[i]}");
                 Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper();
-
-                do //checks for invalid inputs
-                {
-                    if (user_answer != "A" && user_answer != "B" && user_answer != "C")
-                    {
-                        Console.Write("Please input a valid answer: ");
-                        user_answer = Console.ReadLine().ToUpper();
-                        if (user_answer == "A" || user_answer == "B" || user_answer == "C")
-                        {
-                            break; //breaks the loop and goes to next line
-                        }
-                    }
-                } while (user_answer != "A" && user_answer != "B" && user_answer != "C"); // looped as long as it doesn't match ABC
+                user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
 
                 if (user_answer == Hard_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
                 {
@@ -355,11 +284,9 @@
                 }
                 Console.WriteLine("Please enter any key to continue...");
                 Console.ReadKey();
-
             } //end of for loop
 
             // quiz results
-            char retry;
             Console.Clear();
             Console.WriteLine($"You finished the Easy Quiz, nice job {user_name}!");
             Console.WriteLine($"\nYour score was {user_score}/{outof}.");
@@ -367,37 +294,75 @@
             {
                 Console.WriteLine("Congratulations, you passed!");
             }
-            else if (user_score < 5) // if user_score less than 5, it tells user they failed
+            else if (user_score < 6) // if user_score less than 6, it tells user they failed
             {
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             }
             Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
-            retry = Convert.ToChar(Console.ReadLine().ToUpper()); // converts to char and to upper
-
-            do //checks for invalid inputs
-            {
-                if (retry != 'Y' && retry != 'N')
-                {
-                    Console.Write("Please input a valid answer: ");
-                    retry = Convert.ToChar(Console.ReadLine().ToUpper());
-                    if (retry == 'Y' || retry == 'N')
-                    {
-                        break; //breaks the loop and goes to next line
-                    }
-                }
-            } while (retry != 'Y' && retry != 'N');
+            string retry = Console.ReadLine().ToUpper(); // to upper capitalises user input
+            retry = ValidityCheckerYN(retry); //method at bottom
 
             switch (retry) // if Y it goes back to menu, if N it breaks = end
             {
-                case 'Y':
+                case "Y":
                     Menu(user_name);
                     break;
-                case 'N':
+                case "N":
                     Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
         } // end of hard quiz
-
+        static string ValidityChecker(string user_answer)
+        {
+            do //checks for invalid inputs
+            {
+                if (user_answer != "A" && user_answer != "B" && user_answer != "C")
+                {
+                    Console.Write("Please input a valid answer: ");
+                    user_answer = Console.ReadLine().ToUpper();
+                    if (user_answer == "A" || user_answer == "B" || user_answer == "C")
+                    {
+                        break; //breaks the loop and goes to next line
+                    }
+                }
+            } while (user_answer != "A" && user_answer != "B" && user_answer != "C"); // looped as long as it doesn't match ABC
+            return user_answer;
+        }
+        static string ValidityCheckerYN(string retry)
+        {
+            do //checks for invalid inputs
+            {
+                if (retry != "Y" && retry != "Y")
+                {
+                    Console.Write("Please input a valid answer: ");
+                    retry = Console.ReadLine().ToUpper();
+                    if (retry == "Y" || retry == "Y")
+                    {
+                        break; //breaks the loop and goes to next line
+                    }
+                }
+            } while (retry != "Y" && retry != "N");
+            return retry;
+        }
+        static string AnswerTheQuestionYN(string user_answer)
+        {
+            return user_answer;
+        }
+        /*static void CorrectAnswerChecker(string user_answer)
+        {
+            if (user_answer == Hard_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
+            {
+                user_score += QUESTION_VALUE;
+                outof++;
+                Console.WriteLine("\nYour answer was correct!");
+            }
+            else if (user_answer != Hard_Answers[i]) // if user does not match the correct answer (true or false), it adds 1 to outof or the total so far, and tells user the correct answer
+            {
+                outof++;
+                Console.WriteLine($"\nUnlucky the correct answer was {Hard_Answers[i]}");
+            }
+        }*/
+                                                                                           // 
         // -----------------------------------OLD CODE OF EASY -----------------------------------
 
         /*switch(variable name)
