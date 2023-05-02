@@ -5,12 +5,12 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Press any key to start...");
-            Console.ReadKey(); //user can press any key
             Play();  
         }
         static void Play()
         { // start of play method
+            Console.WriteLine("Press any key to start...");
+            Console.ReadKey(); //user can press any key
             Console.Clear(); //clears the console app
             Console.WriteLine("Te Reo Maori Quiz");
             Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
@@ -26,7 +26,6 @@
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
             string num = Console.ReadLine();
 
-
             do //checks for user invalid inputs
             {
                 if (num != "1" && num != "2" && num != "3" && num != "4")
@@ -39,7 +38,6 @@
                     }
                 }
             } while (num != "1" && num != "2" && num != "3" && num != "4");
-
 
             switch (num) //this is to direct user to which difficulty he chooses.
             {
@@ -69,26 +67,27 @@
             Console.ReadKey(); 
 
             Console.Clear();
+            string user_input = "", user_strAge, user_country, user_beloved, user_fav_game;
             int user_age;
-            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. JUST TYPE 'SKIP' TO SKIP THE QUESTION.");
+            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.");
             Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
-            Console.Write("\nHow old are you? : ");
-            string strAge = Console.ReadLine().ToUpper(); //ToUpper so that it capitalises user input
-            if (strAge == "SKIP") //if user type skip, then default age is 17 (same goes for the rest)
+            Console.Write("\nHow old are you?");
+            user_strAge = OptionalQuestionsMethod(user_input);
+            if (user_input == "default")
                 user_age = 17;
             else
-                user_age = Convert.ToInt32(strAge);
+                user_age = Convert.ToInt32(user_strAge);
             Console.Write("What country are you from? : ");
-            string user_country = Console.ReadLine().ToUpper();
-            if (user_country == "SKIP")
+            user_country = OptionalQuestionsMethod(user_input);
+            if (user_input == "default")
                 user_country = "New Zealand";
             Console.Write("Who is a person you love? : ");
-            string user_beloved = Console.ReadLine().ToUpper();
-            if (user_beloved == "SKIP")
+            user_beloved = OptionalQuestionsMethod(user_input);
+            if (user_input == "default")
                 user_beloved = "Mom";
             Console.Write("What is your favorite game (videogame/sport) to play? : ");
-            string user_fav_game = Console.ReadLine().ToUpper(); 
-            if (user_fav_game == "SKIP")
+            user_fav_game = OptionalQuestionsMethod(user_input);
+            if (user_input == "default")
                 user_fav_game = "Football";
             Console.WriteLine("\nPress any key to start the quiz...");
             Console.ReadKey();
@@ -344,10 +343,57 @@
             } while (retry != "Y" && retry != "N");
             return retry;
         }
-        static string AnswerTheQuestionYN(string user_answer)
+        static string OptionalQuestionsMethod(string user_input)
         {
-            return user_answer;
+            Console.Write("\nAnswer the question? (Y/N): ");
+            string tempYN = Console.ReadLine().ToUpper();
+            do //checks for invalid inputs
+            {
+                if (tempYN != "Y" && tempYN != "N")
+                {
+                    Console.Write("Please input a valid answer: ");
+                    tempYN = Console.ReadLine().ToUpper();
+                    if (tempYN == "Y" || tempYN == "N")
+                    {
+                        break; //breaks the loop and goes to next line
+                    }
+                }
+            } while (tempYN != "Y" && tempYN != "N");
+
+            switch (tempYN)
+            {
+                case "Y":
+                    Console.Write("\nType your answer here: ");
+                    user_input = Console.ReadLine();
+                    break;
+                case "N":
+                    user_input = "default";
+                    break;
+            }
+            return user_input;
         }
+        /*string user_answer;
+        int user_age;
+            Console.Write("\nHow old are you? : ");
+            string strAge = Console.ReadLine().ToUpper(); //ToUpper so that it capitalises user input
+            if (strAge == "SKIP") //if user type skip, then default age is 17 (same goes for the rest)
+                user_age = 17;
+            else
+                user_age = Convert.ToInt32(strAge);
+            Console.Write("What country are you from? : ");
+            string user_country = Console.ReadLine().ToUpper();
+            if (user_country == "SKIP")
+                user_country = "New Zealand";
+            Console.Write("Who is a person you love? : ");
+            string user_beloved = Console.ReadLine().ToUpper();
+            if (user_beloved == "SKIP")
+                user_beloved = "Mom";
+            Console.Write("What is your favorite game (videogame/sport) to play? : ");
+            string user_fav_game = Console.ReadLine().ToUpper(); 
+            if (user_fav_game == "SKIP")
+                user_fav_game = "Football";
+            Console.WriteLine("\nPress any key to start the quiz...");
+            Console.ReadKey();*/
         /*static void CorrectAnswerChecker(string user_answer)
         {
             if (user_answer == Hard_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
