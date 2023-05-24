@@ -22,107 +22,94 @@ namespace TeReoMaoriQuiz
                     Console.Write("Please enter a valid option: ");
                     level = Console.ReadLine();
                     if (level == "1" || level == "2" || level == "3" || level == "4")
-                    {
-                        break; //breaks the loop and goes to the next line
-                    }
+                        break; //breaks the loop and goes to the next line\
                 }
             } while (level != "1" && level != "2" && level != "3" && level != "4");
-            
-            if (level == "1")
-                Console.Clear();
-                Console.WriteLine("Welcome to the Beginner's Quiz!");
-                Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the \nletter of the answer. Take your time and goodluck!");
-                Console.WriteLine("\nPress any key to start ...");
-                Console.ReadKey();
 
+            string user_input = "", user_strAge = "17", user_country ="New Zealand", user_beloved ="Mom", user_fav_game ="Football";
+            int user_age = 17;
+            if (level == "1")
+            {
                 Console.Clear();
-                string user_input = "", user_strAge, user_country, user_beloved, user_fav_game;
-                int user_age;
-                Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.");
-                Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
+                Console.WriteLine("Welcome to the Beginner's Quiz!\n\nThis is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the \nletter of the answer. Take your time and goodluck!\n\nPress any key to start ...");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.\n\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
                 Console.Write("\nHow old are you?");
                 user_strAge = OptionalQuestionsMethod(user_input);
-                if (user_input == "default")
-                    user_age = 17;
-                else
-                    user_age = Convert.ToInt32(user_strAge);
+                user_age = Convert.ToInt32(user_strAge);
                 Console.Write("\nWhat country are you from? : ");
                 user_country = OptionalQuestionsMethod(user_input);
-                if (user_input == "default")
-                    user_country = "New Zealand";
                 Console.Write("\nWho is a person you love? : ");
                 user_beloved = OptionalQuestionsMethod(user_input);
-                if (user_input == "default")
-                    user_beloved = "Mom";
                 Console.Write("\nWhat is your favorite game (videogame/sport) to play? : ");
                 user_fav_game = OptionalQuestionsMethod(user_input);
-                if (user_input == "default")
-                    user_fav_game = "Football";
                 Console.WriteLine("\nPress any key to start the quiz...");
-            else if (level == "2")
+            }
+            if (level == "2")
+            {
                 Console.Clear();
-                Console.WriteLine("Welcome to the Intermediate/Standard Quiz!");
-                Console.WriteLine("This is a 10 question quiz, this no longer just makes you translate english words to Maori but it will now also test \nabout your general knowledge of Maori language. Choose the letter of the answer you think is correct, take your time \nand goodluck!"); // \n are used so the text outputted in the console looks clean
-                Console.WriteLine("\nPress any key to start...");
-            else if (level == "3")
-                            Console.Clear();
-                Console.WriteLine("Welcome to the Expert's Quiz!");
-                Console.WriteLine("This is a 10 question quiz, this will test your expertise on the Maori language, including it's history, mastery \nin the language, culture, peotry and the like. Choose the letter of the answer you think is correct, take your \ntime and goodluck!");
-                Console.WriteLine("\nPress any key to continue...");
-            else if (level == "4")
+                Console.WriteLine("Welcome to the Intermediate/Standard Quiz!\n\nThis is a 10 question quiz, this no longer just makes you translate english words to Maori but it will now also test \nabout your general knowledge of Maori language. Choose the letter of the answer you think is correct, take your time \nand goodluck!\n\nPress any key to start...");
+            }
+            if (level == "3")
+            {
+                Console.Clear();
+                Console.WriteLine("Welcome to the Expert's Quiz!\n\nThis is a 10 question quiz, this will test your expertise on the Maori language, including it's history, mastery \nin the language, culture, peotry and the like. Choose the letter of the answer you think is correct, take your \ntime and goodluck!\n\nPress any key to continue...");
+            }
+            if (level == "4")
+            {
                 Console.WriteLine("You exited... Press any key to start again.");
                 Console.ReadKey();
-                Main();
+                Main(args);
+            }
             Console.ReadKey();
            
             //EASY QUESTIONS AND ANSWERS
             string[] Easy_Questions = { "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!", $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {user_name}.\nb. Ko taku ingoa whānau ko {user_name}.\nc. Ko wai tou ingoa {user_name}.", "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Mōrena.\nb. Ahiahi marie.\nc. Po marie.", $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {user_age + 1}th la Hanau  {user_name}!\nb. hari {user_age + 1}th rā Whānau ki a Koe {user_name}!\nc. Āhea tō {user_age + 1}th rā whānau {user_name}!", $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {user_beloved}.\nb. he aroha nui tāku mōu {user_beloved}. \nc. he pai ki a au te waehere {user_beloved}.", "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu", $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.", "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui", $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga", $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga." };
             string[] Easy_Answers = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
             //MEDIUM QUESTIONS AND ANSWERS
-            string[] Medium_Questions = new string[10]; //all the easy questions in an array
-            Medium_Questions[0] = "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32";
-            Medium_Questions[1] = "How many people in New Zealand speak Maori?\n\na. 100,000\nb. 250,000\nc. 500,000";
-            Medium_Questions[2] = "What is a 'haka' in Maori culture?\n\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo";
-            Medium_Questions[3] = "Which of the following is not a color?\n\na. Kakariki'\nb. Panga\nc. Mawhero";
-            Medium_Questions[4] = "What is the name for the traditional Maori nose touching greeting?\n\na. Wharenui\nb. Haka\nc. Hongi";
-            Medium_Questions[5] = "How many vowels does the Maori language have?\n\na. 5\r\nb. 6\nc. 7";
-            Medium_Questions[6] = "What is the name for the Maori alphabet?\n\na. Te Taura Whiri\nb. Te Reo Maori\nc. Te Arapu Maori";
-            Medium_Questions[7] = "Which of the following is a Maori dialect?\n\na. Te Reo Pakeha\r\nb. Ngapuhi\nc. Tokelauan";
-            Medium_Questions[8] = "Which of the following is not a correct Maori word for a food item?\n\na. kumara\nb. pāua\nc. whare";
-            Medium_Questions[9] = "What is the name of the haka performed by the New Zealand national rugby team before matches?\n\na.Kapa Haka\nb. Ka Mare\nc. Haka Tuturu";
-
+            string[] Medium_Questions = { "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32", "How many people in New Zealand speak Maori?\n\na. 100,000\nb. 250,000\nc. 500,000", "What is a 'haka' in Maori culture?\n\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo", "Which of the following is not a color?\n\na. Kakariki'\nb. Panga\nc. Mawhero", "What is the name for the traditional Maori nose touching greeting?\n\na. Wharenui\nb. Haka\nc. Hongi", "How many vowels does the Maori language have?\n\na. 5\r\nb. 6\nc. 7", "What is the name for the Maori alphabet?\n\na. Te Taura Whiri\nb. Te Reo Maori\nc. Te Arapu Maori", "Which of the following is a Maori dialect?\n\na. Te Reo Pakeha\r\nb. Ngapuhi\nc. Tokelauan", "Which of the following is not a correct Maori word for a food item?\n\na. kumara\nb. pāua\nc. whare", "What is the name of the haka performed by the New Zealand national rugby team before matches?\n\na.Kapa Haka\nb. Ka Mare\nc. Haka Tuturu" };
             string[] Medium_Answers = { "C", "A", "B", "B", "C", "A", "C", "B", "C", "C" }; // all answers in an array
             //HARD QUESTIONS AND ANSWERS
-            string[] Hard_Questions = { "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu", "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi", "Which of the following is a Maori vowel?\n\na. /ei/\r\nb. /i/\r\nc. /ai/", "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri", "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo", "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua", "Which of the following is a common feature of Maori phonology?\n\na. Tone\nb. Final consonants\nc. Nasal vowels", "Which of the following is a correct translation for the Maori word 'tino rangatiratanga'?\n\na. Sovereignty and self-determination\nb. Wisdom and understanding\nc. Respect and honory", "Which of the following is the correct pronunciation for the Maori word 'karakia'?\n\na. kah-rah-kee-ah\nb. kah-rah-kyah\nc. kuh-rah-kyah", "What is the name for the Maori language revitalization program launched in 1982?\n\na. Te Aho Matua\nb. Te Reo Maori\nc. Kohanga Reo" }
+            string[] Hard_Questions = { "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu", "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi", "Which of the following is a Maori vowel?\n\na. /ei/\r\nb. /i/\r\nc. /ai/", "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri", "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo", "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua", "Which of the following is a common feature of Maori phonology?\n\na. Tone\nb. Final consonants\nc. Nasal vowels", "Which of the following is a correct translation for the Maori word 'tino rangatiratanga'?\n\na. Sovereignty and self-determination\nb. Wisdom and understanding\nc. Respect and honory", "Which of the following is the correct pronunciation for the Maori word 'karakia'?\n\na. kah-rah-kee-ah\nb. kah-rah-kyah\nc. kuh-rah-kyah", "What is the name for the Maori language revitalization program launched in 1982?\n\na. Te Aho Matua\nb. Te Reo Maori\nc. Kohanga Reo" };
             string[] Hard_Answers = { "A", "C", "B", "A", "B", "C", "A", "A", "A", "C" }; //all answers in an array
-            string user_answer;
+            string user_answer, correct = "";
             int user_score = 0, outof = 0;
             const int QUESTION_VALUE = 1;
             //FOR LOOP FOR QUIZ SYSTEM
-            for (int i = 0; i < Easy_Questions.Length; i++) //displaying the questions to the user
+            for (int i = 0; i < 10; i++) //displaying the questions to the user
             {
                 Console.Clear();
                 Console.WriteLine($"Your score: {user_score}/{outof}\n\n");
-                    if (level == "1")
-                        Console.WriteLine($"Question {i + 1}:\n\n{Easy_Questions[i]}"); //i starts at 0 so it has +1 for question number
-                    else if (level == "2")
-                        Console.WriteLine($"Question {i + 1}:\n\n{Medium_Questions[i]}");
-                    else if (level == "3")
-                        Console.WriteLine($"Question {i + 1}:\n\n{Hard_Questions[i]}");
-                    Console.Write("\nType your answer here: ");
+                if (level == "1")
+                {
+                    Console.WriteLine($"Question {i + 1}:\n\n{Easy_Questions[i]}"); //i starts at 0 so it has +1 for question number
+                    correct = Easy_Answers[i];
+                }
+                if (level == "2")
+                {
+                    Console.WriteLine($"Question {i + 1}:\n\n{Medium_Questions[i]}");
+                    correct = Medium_Answers[i];
+                }
+                if (level == "3")
+                {
+                    Console.WriteLine($"Question {i + 1}:\n\n{Hard_Questions[i]}");
+                    correct = Hard_Answers[i];
+                }
+                Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper(); //toupper capitalises user input
                 user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
 
-                if (user_answer == Easy_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
+                if (user_answer == correct) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
                 {
                     user_score += QUESTION_VALUE; // question value is 1 set earlier
                     outof++;
                     Console.WriteLine("\nYour answer was correct!");
                 }
-                else if (user_answer != Easy_Answers[i]) // if user does not match the correct answer (true or false), it adds 1 to outof or the total so far, and tells user the correct answer
+                else if (user_answer != correct) // if user does not match the correct answer (true or false), it adds 1 to outof or the total so far, and tells user the correct answer
                 {
                     outof++;
-                    Console.WriteLine($"\nUnlucky the correct answer was {Easy_Answers[i]}.");
+                    Console.WriteLine($"\nUnlucky the correct answer was {correct}.");
                 }
                 Console.WriteLine("Please enter any key to continue...");
                 Console.ReadKey();
@@ -130,7 +117,7 @@ namespace TeReoMaoriQuiz
 
             // quiz results
             Console.Clear();
-            Console.WriteLine($"You finished the Easy Quiz, nice job {user_name}!");
+            Console.WriteLine($"You finished the Quiz, nice job {user_name}!");
             Console.WriteLine($"\nYour score was {user_score}/{outof}.");
             if (user_score >= 6) // if user_score greater than or equal to 6
             {
@@ -147,71 +134,13 @@ namespace TeReoMaoriQuiz
             switch (retry) // if Y it goes back to menu, if N it breaks = end
             {
                 case "Y":
-                    Menu(user_name);
+                    Main(args);
                     break;
                 case "N":
                     Console.WriteLine("Thank you for taking the quiz, goodbye!");
                     break;
             }
         } //end of easy quiz
-
-
-            
-
-            string user_answer;
-            int user_score = 0, outof = 0;
-            const int QUESTION_VALUE = 1;
-            for (int i = 0; i < Medium_Questions.Length; i++) //displaying the questions to the user
-            {
-                Console.Clear();
-                Console.WriteLine($"Your score: {user_score}/{outof}\n\n");
-                Console.WriteLine($"Question {i + 1}:\n\n{Medium_Questions[i]}");
-                Console.Write("\nType your answer here: ");
-                user_answer = Console.ReadLine().ToUpper();
-                user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
-
-                if (user_answer == Medium_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
-                {
-                    user_score += QUESTION_VALUE;
-                    outof++;
-                    Console.WriteLine("\nYour answer was correct!"); 
-                }
-                else if (user_answer != Medium_Answers[i]) // if user does not match the correct answer (true or false), it adds 1 to outof or the total so far, and tells user the correct answer
-                {
-                    outof++;
-                    Console.WriteLine($"\nUnlucky the correct answer was {Medium_Answers[i]}.");
-                }
-                Console.WriteLine("Please enter any key to continue...");
-                Console.ReadKey();
-            } //end of for loop
-
-            // quiz results
-            Console.Clear();
-            Console.WriteLine($"You finished the Easy Quiz, nice job {user_name}!");
-            Console.WriteLine($"\nYour score was {user_score}/{outof}.");
-            if (user_score >= 6) // if user_score greater than or equal to 6, it tells user they passed
-            {
-                Console.WriteLine("Congratulations, you passed!");
-            }
-            else if (user_score < 6) // if user_score less than 6, it tells user they failed
-            {
-                Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
-            }
-            Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
-            string retry = Console.ReadLine().ToUpper(); // converts to char and to upper
-            retry = ValidityCheckerYN(retry); //method at bottom
-
-            switch (retry) // if Y it goes back to menu, if N it breaks = end
-            {
-                case "Y":
-                    Menu(user_name);
-                    break;
-                case "N":
-                    Console.WriteLine("Thank you for taking the quiz, goodbye!");
-                    break;
-            }
-        } // end of medium quiz
-
         static string ValidityChecker(string user_answer)
         {
             do //checks for invalid inputs
@@ -268,7 +197,6 @@ namespace TeReoMaoriQuiz
                     user_input = Console.ReadLine();
                     break;
                 case "N":
-                    user_input = "default";
                     break;
             }
             return user_input;
