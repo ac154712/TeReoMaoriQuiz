@@ -79,17 +79,21 @@ namespace TeReoMaoriQuiz
             string[] Easy_Questions = { "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!", $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {user_name}.\nb. Ko taku ingoa whānau ko {user_name}.\nc. Ko wai tou ingoa {user_name}.", "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Mōrena.\nb. Ahiahi marie.\nc. Po marie.", $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {user_age + 1}th la Hanau  {user_name}!\nb. hari {user_age + 1}th rā Whānau ki a Koe {user_name}!\nc. Āhea tō {user_age + 1}th rā whānau {user_name}!", $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {user_beloved}.\nb. he aroha nui tāku mōu {user_beloved}. \nc. he pai ki a au te waehere {user_beloved}.", "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu", $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.", "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui", $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga", $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga." };
             string[] Easy_Answers = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
             //MEDIUM QUESTIONS AND ANSWERS
-            //HARD QUESTIONS AND ANSWERS
-            string[] Hard_Questions = {"What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu", "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi";
-            Hard_Questions[2] = "Which of the following is a Maori vowel?\n\na. /ei/\r\nb. /i/\r\nc. /ai/";
-            Hard_Questions[3] = "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri";
-            Hard_Questions[4] = "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo";
-            Hard_Questions[5] = "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua";
-            Hard_Questions[6] = "Which of the following is a common feature of Maori phonology?\n\na. Tone\nb. Final consonants\nc. Nasal vowels";
-            Hard_Questions[7] = "Which of the following is a correct translation for the Maori word 'tino rangatiratanga'?\n\na. Sovereignty and self-determination\nb. Wisdom and understanding\nc. Respect and honory";
-            Hard_Questions[8] = "Which of the following is the correct pronunciation for the Maori word 'karakia'?\n\na. kah-rah-kee-ah\nb. kah-rah-kyah\nc. kuh-rah-kyah";
-            Hard_Questions[9] = "What is the name for the Maori language revitalization program launched in 1982?\n\na. Te Aho Matua\nb. Te Reo Maori\nc. Kohanga Reo";
+            string[] Medium_Questions = new string[10]; //all the easy questions in an array
+            Medium_Questions[0] = "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32";
+            Medium_Questions[1] = "How many people in New Zealand speak Maori?\n\na. 100,000\nb. 250,000\nc. 500,000";
+            Medium_Questions[2] = "What is a 'haka' in Maori culture?\n\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo";
+            Medium_Questions[3] = "Which of the following is not a color?\n\na. Kakariki'\nb. Panga\nc. Mawhero";
+            Medium_Questions[4] = "What is the name for the traditional Maori nose touching greeting?\n\na. Wharenui\nb. Haka\nc. Hongi";
+            Medium_Questions[5] = "How many vowels does the Maori language have?\n\na. 5\r\nb. 6\nc. 7";
+            Medium_Questions[6] = "What is the name for the Maori alphabet?\n\na. Te Taura Whiri\nb. Te Reo Maori\nc. Te Arapu Maori";
+            Medium_Questions[7] = "Which of the following is a Maori dialect?\n\na. Te Reo Pakeha\r\nb. Ngapuhi\nc. Tokelauan";
+            Medium_Questions[8] = "Which of the following is not a correct Maori word for a food item?\n\na. kumara\nb. pāua\nc. whare";
+            Medium_Questions[9] = "What is the name of the haka performed by the New Zealand national rugby team before matches?\n\na.Kapa Haka\nb. Ka Mare\nc. Haka Tuturu";
 
+            string[] Medium_Answers = { "C", "A", "B", "B", "C", "A", "C", "B", "C", "C" }; // all answers in an array
+            //HARD QUESTIONS AND ANSWERS
+            string[] Hard_Questions = { "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu", "What is the name of the Maori god of the sky?\n\na. Tane\nb. Tangaroa\nc. Rangi", "Which of the following is a Maori vowel?\n\na. /ei/\r\nb. /i/\r\nc. /ai/", "What is the name of the Maori war dance?\n\na. Haka Taparahi\nb. Haka Tuturu\nc. Haka Pohiri", "What is the name of the Maori ancestral canoe that is said to have brought the first Maori to New Zealand?\n\na. Aotea\nb. Tainui\nc. Kurahaupo", "Which Maori language dialect is spoken in the North Island of New Zealand?\n\na. Te Reo o Ngai Tahu\nb. Te Reo o Ngati Porou\nc. Te Reo o Ngati Whatua", "Which of the following is a common feature of Maori phonology?\n\na. Tone\nb. Final consonants\nc. Nasal vowels", "Which of the following is a correct translation for the Maori word 'tino rangatiratanga'?\n\na. Sovereignty and self-determination\nb. Wisdom and understanding\nc. Respect and honory", "Which of the following is the correct pronunciation for the Maori word 'karakia'?\n\na. kah-rah-kee-ah\nb. kah-rah-kyah\nc. kuh-rah-kyah", "What is the name for the Maori language revitalization program launched in 1982?\n\na. Te Aho Matua\nb. Te Reo Maori\nc. Kohanga Reo" }
             string[] Hard_Answers = { "A", "C", "B", "A", "B", "C", "A", "A", "A", "C" }; //all answers in an array
             string user_answer;
             int user_score = 0, outof = 0;
@@ -152,19 +156,7 @@ namespace TeReoMaoriQuiz
         } //end of easy quiz
 
 
-            string[] Medium_Questions = new string[10]; //all the easy questions in an array
-            Medium_Questions[0] = "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32";
-            Medium_Questions[1] = "How many people in New Zealand speak Maori?\n\na. 100,000\nb. 250,000\nc. 500,000";
-            Medium_Questions[2] = "What is a 'haka' in Maori culture?\n\na. A Maori greeting\nb. A type of Maori dance\nc. A traditional Maori tattoo";
-            Medium_Questions[3] = "Which of the following is not a color?\n\na. Kakariki'\nb. Panga\nc. Mawhero";
-            Medium_Questions[4] = "What is the name for the traditional Maori nose touching greeting?\n\na. Wharenui\nb. Haka\nc. Hongi";
-            Medium_Questions[5] = "How many vowels does the Maori language have?\n\na. 5\r\nb. 6\nc. 7";
-            Medium_Questions[6] = "What is the name for the Maori alphabet?\n\na. Te Taura Whiri\nb. Te Reo Maori\nc. Te Arapu Maori";
-            Medium_Questions[7] = "Which of the following is a Maori dialect?\n\na. Te Reo Pakeha\r\nb. Ngapuhi\nc. Tokelauan";
-            Medium_Questions[8] = "Which of the following is not a correct Maori word for a food item?\n\na. kumara\nb. pāua\nc. whare";
-            Medium_Questions[9] = "What is the name of the haka performed by the New Zealand national rugby team before matches?\n\na.Kapa Haka\nb. Ka Mare\nc. Haka Tuturu";
-
-            string[] Medium_Answers = { "C", "A", "B", "B", "C", "A", "C", "B", "C", "C"}; // all answers in an array
+            
 
             string user_answer;
             int user_score = 0, outof = 0;
