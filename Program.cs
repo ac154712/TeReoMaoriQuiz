@@ -1,4 +1,6 @@
-﻿namespace TeReoMaoriQuiz
+﻿using System.ComponentModel.Design;
+
+namespace TeReoMaoriQuiz
 {
     internal class Program
     {
@@ -27,43 +29,54 @@
                     }
                 }
             } while (level != "1" && level != "2" && level != "3" && level != "4");
-
-            if (level == "4")
-                    Console.WriteLine("You exited... Press any key to start again.");
-                    Console.ReadKey();
-                    Main();
             
-            /*Console.Clear();
-            Console.WriteLine("Welcome to the Beginner's Quiz!");
-            Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the \nletter of the answer. Take your time and goodluck!");
-            Console.WriteLine("\nPress any key to start ...");
-            Console.ReadKey(); */
+            if (level == "1")
+                Console.Clear();
+                Console.WriteLine("Welcome to the Beginner's Quiz!");
+                Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the \nletter of the answer. Take your time and goodluck!");
+                Console.WriteLine("\nPress any key to start ...");
+                Console.ReadKey();
 
-            Console.Clear();
-            string user_input = "", user_strAge, user_country, user_beloved, user_fav_game;
-            int user_age;
-            Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.");
-            Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
-            Console.Write("\nHow old are you?");
-            user_strAge = OptionalQuestionsMethod(user_input);
-            if (user_input == "default")
-                user_age = 17;
-            else
-                user_age = Convert.ToInt32(user_strAge);
-            Console.Write("\nWhat country are you from? : ");
-            user_country = OptionalQuestionsMethod(user_input);
-            if (user_input == "default")
-                user_country = "New Zealand";
-            Console.Write("\nWho is a person you love? : ");
-            user_beloved = OptionalQuestionsMethod(user_input);
-            if (user_input == "default")
-                user_beloved = "Mom";
-            Console.Write("\nWhat is your favorite game (videogame/sport) to play? : ");
-            user_fav_game = OptionalQuestionsMethod(user_input);
-            if (user_input == "default")
-                user_fav_game = "Football";
-            Console.WriteLine("\nPress any key to start the quiz...");
+                Console.Clear();
+                string user_input = "", user_strAge, user_country, user_beloved, user_fav_game;
+                int user_age;
+                Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.");
+                Console.WriteLine("\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");
+                Console.Write("\nHow old are you?");
+                user_strAge = OptionalQuestionsMethod(user_input);
+                if (user_input == "default")
+                    user_age = 17;
+                else
+                    user_age = Convert.ToInt32(user_strAge);
+                Console.Write("\nWhat country are you from? : ");
+                user_country = OptionalQuestionsMethod(user_input);
+                if (user_input == "default")
+                    user_country = "New Zealand";
+                Console.Write("\nWho is a person you love? : ");
+                user_beloved = OptionalQuestionsMethod(user_input);
+                if (user_input == "default")
+                    user_beloved = "Mom";
+                Console.Write("\nWhat is your favorite game (videogame/sport) to play? : ");
+                user_fav_game = OptionalQuestionsMethod(user_input);
+                if (user_input == "default")
+                    user_fav_game = "Football";
+                Console.WriteLine("\nPress any key to start the quiz...");
+            else if (level == "2")
+                Console.Clear();
+                Console.WriteLine("Welcome to the Intermediate/Standard Quiz!");
+                Console.WriteLine("This is a 10 question quiz, this no longer just makes you translate english words to Maori but it will now also test \nabout your general knowledge of Maori language. Choose the letter of the answer you think is correct, take your time \nand goodluck!"); // \n are used so the text outputted in the console looks clean
+                Console.WriteLine("\nPress any key to start...");
+            else if (level == "3")
+                            Console.Clear();
+                Console.WriteLine("Welcome to the Expert's Quiz!");
+                Console.WriteLine("This is a 10 question quiz, this will test your expertise on the Maori language, including it's history, mastery \nin the language, culture, peotry and the like. Choose the letter of the answer you think is correct, take your \ntime and goodluck!");
+                Console.WriteLine("\nPress any key to continue...");
+            else if (level == "4")
+                Console.WriteLine("You exited... Press any key to start again.");
+                Console.ReadKey();
+                Main();
             Console.ReadKey();
+           
                 //EASY QUESTIONS AND ANSWERS
             string[] Easy_Questions = { "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!", $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {user_name}.\nb. Ko taku ingoa whānau ko {user_name}.\nc. Ko wai tou ingoa {user_name}.", "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Mōrena.\nb. Ahiahi marie.\nc. Po marie.", $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {user_age + 1}th la Hanau  {user_name}!\nb. hari {user_age + 1}th rā Whānau ki a Koe {user_name}!\nc. Āhea tō {user_age + 1}th rā whānau {user_name}!", $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {user_beloved}.\nb. he aroha nui tāku mōu {user_beloved}. \nc. he pai ki a au te waehere {user_beloved}.", "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu", $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.", "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui", $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga", $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga." };
             string[] Easy_Answers = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
@@ -128,13 +141,6 @@
             }
         } //end of easy quiz
 
-        static void Medium(string user_name)
-        { // start of medium quiz
-            Console.Clear();
-            Console.WriteLine("Welcome to the Intermediate/Standard Quiz!");
-            Console.WriteLine("This is a 10 question quiz, this no longer just makes you translate english words to Maori but it will now also test \nabout your general knowledge of Maori language. Choose the letter of the answer you think is correct, take your time \nand goodluck!"); // \n are used so the text outputted in the console looks clean
-            Console.WriteLine("\nPress any key to start...");
-            Console.ReadKey();
 
             string[] Medium_Questions = new string[10]; //all the easy questions in an array
             Medium_Questions[0] = "How many letters are in the Maori alphabet?\n\na. 26\nb. 20\nc. 32";
@@ -204,13 +210,7 @@
             }
         } // end of medium quiz
 
-        static void Hard(string user_name)
-        { // start of hard quiz
-            Console.Clear();
-            Console.WriteLine("Welcome to the Expert's Quiz!");
-            Console.WriteLine("This is a 10 question quiz, this will test your expertise on the Maori language, including it's history, mastery \nin the language, culture, peotry and the like. Choose the letter of the answer you think is correct, take your \ntime and goodluck!");
-            Console.WriteLine("\nPress any key to continue...");
-            Console.ReadKey();
+        
 
             string[] Hard_Questions = new string[10]; //all the easy questions in an array
             Hard_Questions[0] = "What is the name for the Maori language commission?\n\na. Te Taura Whiri i te Reo Maori\nb. Te Papa Tongarewa\nc. Ngai Tahu";
@@ -226,32 +226,9 @@
 
             string[] Hard_Answers = { "A", "C", "B", "A", "B", "C", "A", "A", "A", "C" }; //all answers in an array
             
-            string user_answer;
-            int user_score = 0, outof = 0;
-            const int QUESTION_VALUE = 1; // makes question worth 1 point
-            for (int i = 0; i < Hard_Questions.Length; i++) //displaying the questions to the user
-            {
-                Console.Clear();
-                Console.WriteLine($"Your score: {user_score}/{outof}\n\n");
-                Console.WriteLine($"Question {i + 1}:\n\n{Hard_Questions[i]}");
-                Console.Write("\nType your answer here: ");
-                user_answer = Console.ReadLine().ToUpper();
-                user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
+            
 
-                if (user_answer == Hard_Answers[i]) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
-                {
-                    user_score += QUESTION_VALUE;
-                    outof++;
-                    Console.WriteLine("\nYour answer was correct!");
-                }
-                else if (user_answer != Hard_Answers[i]) // if user does not match the correct answer (true or false), it adds 1 to outof or the total so far, and tells user the correct answer
-                {
-                    outof++;
-                    Console.WriteLine($"\nUnlucky the correct answer was {Hard_Answers[i]}");
-                }
-                Console.WriteLine("Please enter any key to continue...");
-                Console.ReadKey();
-            } //end of for loop
+                if (user_an
 
             // quiz results
             Console.Clear();
