@@ -5,23 +5,16 @@
 
         static void Main(string[] args)
         {
-            Play();  
+            string user_name = "";
+            Menu(user_name);  
         }
-        static void Play()
-        { // start of play method
-            Console.WriteLine("Press any key to start...");
-            Console.ReadKey(); //user can press any key
-            Console.Clear(); //clears the console app
-            Console.WriteLine("Te Reo Maori Quiz");
-            Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
-            string user_name = Console.ReadLine();
-            Menu(user_name);
-        } // end of play method 
-
+        
         static void Menu(string user_name)
         { // start of menu method, asking user the difficulty
             Console.Clear();
             Console.WriteLine("Te Reo Maori Quiz");
+            Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
+            user_name = Console.ReadLine();
             Console.WriteLine($"\nHello {user_name}!");
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
             string num = Console.ReadLine();
@@ -53,7 +46,7 @@
                 case "4":
                     Console.WriteLine("You exited... Press any key to start again.");
                     Console.ReadKey();
-                    Play();
+                    Menu(user_name);
                     break;
             }
         }// end of menu method
@@ -77,15 +70,15 @@
                 user_age = 17;
             else
                 user_age = Convert.ToInt32(user_strAge);
-            Console.Write("What country are you from? : ");
+            Console.Write("\nWhat country are you from? : ");
             user_country = OptionalQuestionsMethod(user_input);
             if (user_input == "default")
                 user_country = "New Zealand";
-            Console.Write("Who is a person you love? : ");
+            Console.Write("\nWho is a person you love? : ");
             user_beloved = OptionalQuestionsMethod(user_input);
             if (user_input == "default")
                 user_beloved = "Mom";
-            Console.Write("What is your favorite game (videogame/sport) to play? : ");
+            Console.Write("\nWhat is your favorite game (videogame/sport) to play? : ");
             user_fav_game = OptionalQuestionsMethod(user_input);
             if (user_input == "default")
                 user_fav_game = "Football";
@@ -372,6 +365,18 @@
             }
             return user_input;
         }
+
+        /*static void Play()
+        { // start of play method
+            Console.WriteLine("Press any key to start...");
+            Console.ReadKey(); //user can press any key
+            Console.Clear(); //clears the console app
+            Console.WriteLine("Te Reo Maori Quiz");
+            Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
+            string user_name = Console.ReadLine();
+            Menu(user_name);
+        } // end of play method */
+
         /*string user_answer;
         int user_age;
             Console.Write("\nHow old are you? : ");
@@ -408,7 +413,7 @@
                 Console.WriteLine($"\nUnlucky the correct answer was {Hard_Answers[i]}");
             }
         }*/
-                                                                                           // 
+        // 
         // -----------------------------------OLD CODE OF EASY -----------------------------------
 
         /*switch(variable name)
