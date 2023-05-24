@@ -5,59 +5,39 @@
 
         static void Main(string[] args)
         {
-            string user_name = "";
-            Menu(user_name);  
-        }
-        
-        static void Menu(string user_name)
+            
         { // start of menu method, asking user the difficulty
             Console.Clear();
             Console.WriteLine("Te Reo Maori Quiz");
             Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
-            user_name = Console.ReadLine();
+            string user_name = Console.ReadLine();
             Console.WriteLine($"\nHello {user_name}!");
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
-            string num = Console.ReadLine();
+            string level = Console.ReadLine();
 
             do //checks for user invalid inputs
             {
-                if (num != "1" && num != "2" && num != "3" && num != "4")
+                if (level != "1" && level != "2" && level != "3" && level != "4")
                 {
                     Console.Write("Please enter a valid option: ");
-                    num = Console.ReadLine();
-                    if (num == "1" || num == "2" || num == "3" || num == "4")
+                    level = Console.ReadLine();
+                    if (level == "1" || level == "2" || level == "3" || level == "4")
                     {
                         break; //breaks the loop and goes to the next line
                     }
                 }
-            } while (num != "1" && num != "2" && num != "3" && num != "4");
+            } while (level != "1" && level != "2" && level != "3" && level != "4");
 
-            switch (num) //this is to direct user to which difficulty he chooses.
-            {
-                case "1":
-                    Easy(user_name);
-                    break;
-                case "2":
-                    Medium(user_name);
-                    break;
-                case "3":
-                    Hard(user_name);
-                    break;
-                case "4":
+            if (level == "4")
                     Console.WriteLine("You exited... Press any key to start again.");
                     Console.ReadKey();
-                    Menu(user_name);
-                    break;
-            }
-        }// end of menu method
-
-        static void Easy(string user_name)
-        { //start of easy quiz
-            Console.Clear();
+                    Main();
+            
+            /*Console.Clear();
             Console.WriteLine("Welcome to the Beginner's Quiz!");
             Console.WriteLine("This is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari Vocabulary. You will have to choose from the options below of the best Maori translation of the english word given, choose the \nletter of the answer. Take your time and goodluck!");
             Console.WriteLine("\nPress any key to start ...");
-            Console.ReadKey(); 
+            Console.ReadKey(); */
 
             Console.Clear();
             string user_input = "", user_strAge, user_country, user_beloved, user_fav_game;
@@ -84,30 +64,25 @@
                 user_fav_game = "Football";
             Console.WriteLine("\nPress any key to start the quiz...");
             Console.ReadKey();
-
-            string[] Easy_Questions = new string[10]; //all the easy questions in an array
-            Easy_Questions[0] = "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!";
-            Easy_Questions[1] = $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {user_name}.\nb. Ko taku ingoa whānau ko {user_name}.\nc. Ko wai tou ingoa {user_name}.";
-            Easy_Questions[2] = "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Mōrena.\nb. Ahiahi marie.\nc. Po marie.";
-            Easy_Questions[3] = $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {user_age+1}th la Hanau  {user_name}!\nb. hari {user_age + 1}th rā Whānau ki a Koe {user_name}!\nc. Āhea tō {user_age + 1}th rā whānau {user_name}!";
-            Easy_Questions[4] = $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {user_beloved}.\nb. he aroha nui tāku mōu {user_beloved}. \nc. he pai ki a au te waehere {user_beloved}.";
-            Easy_Questions[5] = "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu";
-            Easy_Questions[6] = $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.";
-            Easy_Questions[7] = "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui";
-            Easy_Questions[8] = $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga";
-            Easy_Questions[9] = $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga.";
-
+                //EASY QUESTIONS AND ANSWERS
+            string[] Easy_Questions = { "Which of the following Maori word translates to 'Hello!' ? \n\na. aloha!\nb. talofa!\nc. kia ora!", $"Which of the following Maori word/phrase translates to 'My name is...' ?\n\na. Ko toku ingoa {user_name}.\nb. Ko taku ingoa whānau ko {user_name}.\nc. Ko wai tou ingoa {user_name}.", "Which of the following Maori word/phrase translates to 'Good morning.' ?\n\na. Mōrena.\nb. Ahiahi marie.\nc. Po marie.", $"Which of the following Maori word/phrase translates to 'Happy Birthday!' ?\n\na. Hau`oli {user_age + 1}th la Hanau  {user_name}!\nb. hari {user_age + 1}th rā Whānau ki a Koe {user_name}!\nc. Āhea tō {user_age + 1}th rā whānau {user_name}!", $"Which of the following Maori word/phrase translates to 'I love you' ?\n\na. He aroha tāku mōku {user_beloved}.\nb. he aroha nui tāku mōu {user_beloved}. \nc. he pai ki a au te waehere {user_beloved}.", "Which of the following Maori word/phrase translates to 'family' ?\n\na. Whanau\nb. Kaitiaki\nc. Tapu", $"Which of the following Maori word/phrase translates to 'I live in...' ?\n\na. e ora ana ahau mo koe {user_country}.\nb. 'ou te nofo i {user_country}. \nc. E noho ana ahau i roto i {user_country}.", "What is the Maori name for New Zealand?\n\na. Aotearoa\nb. New Zealand\nc. Wharenui", $"Which of the following word/phrases translates to 'I am {user_age} years old.' ?\n\na. He {user_age} au makahiki.\nb. E {user_age} tau te pakeke. \nc.E {user_age} ou tausaga", $"Which of the following word/phrases translates to '{user_fav_game} is the worst game ever.' ?\n\na. Ko te {user_fav_game} te kai pai rawa atu.\nb. Ko te {user_fav_game} te keemu kino rawa atu. \nc. {user_fav_game} ole ta'aloga sili ona leaga." };
             string[] Easy_Answers = { "C", "A", "A", "B", "B", "A", "C", "A", "B", "B"}; //all answers in an array
 
             string user_answer;
             int user_score = 0, outof = 0;
             const int QUESTION_VALUE = 1;
+            //FOR LOOP FOR QUIZ SYSTEM
             for (int i = 0; i < Easy_Questions.Length; i++) //displaying the questions to the user
             {
                 Console.Clear();
                 Console.WriteLine($"Your score: {user_score}/{outof}\n\n");
-                Console.WriteLine($"Question {i + 1}:\n\n{Easy_Questions[i]}"); // i starts at 0 and so forth so it has +1
-                Console.Write("\nType your answer here: ");
+                    if (level == "1")
+                        Console.WriteLine($"Question {i + 1}:\n\n{Easy_Questions[i]}"); //i starts at 0 so it has +1 for question number
+                    else if (level == "2")
+                        Console.WriteLine($"Question {i + 1}:\n\n{Medium_Questions[i]}");
+                    else if (level == "3")
+                        Console.WriteLine($"Question {i + 1}:\n\n{Hard_Questions[i]}");
+                    Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper(); //toupper capitalises user input
                 user_answer = ValidityChecker(user_answer); //validity checker method at the bottom
 
