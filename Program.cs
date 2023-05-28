@@ -14,17 +14,12 @@ namespace TeReoMaoriQuiz
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
             string level = Console.ReadLine();
 
-            do //checks for user invalid inputs
+            while (level != "1" && level != "2" && level != "3" && level != "4") // checks for invalid inputs
             {
-                if (level != "1" && level != "2" && level != "3" && level != "4")
-                {
-                    Console.Write("Please enter a valid option: ");
-                    level = Console.ReadLine();
-                    if (level == "1" || level == "2" || level == "3" || level == "4")
-                        break; //breaks the loop and goes to the next line\
-                }
-            } while (level != "1" && level != "2" && level != "3" && level != "4");
-
+                Console.Write("Please enter a valid option: ");
+                level = Console.ReadLine();
+            }
+                
             string user_input = "", user_strAge = "17", user_country = "New Zealand", user_beloved = "Mom", user_fav_game = "Football";
             int user_age = 17;
             if (level == "1")
@@ -117,8 +112,8 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("Please enter any key to continue...");
                 Console.ReadKey();
             } //end of for loop
-            // quiz results
-            Console.Clear();
+            
+            Console.Clear(); // quiz results
             Console.WriteLine($"You finished the quiz, nice job {user_name}!");
             Console.WriteLine($"\nYour score was {user_score}/10.");
             if (user_score >= 6) // if user_score greater than or equal to 6
@@ -126,14 +121,14 @@ namespace TeReoMaoriQuiz
             else if (user_score < 6) // if user_score less than 6
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
-            string retry = Console.ReadLine().ToUpper(); // converts to char and to upper
+            string retry = Console.ReadLine().ToUpper(); // converts to upper
             do //checks for invalid inputs
             {
-                if (retry != "Y" && retry != "Y")
+                if (retry != "Y" && retry != "N")
                 {
                     Console.Write("Please input a valid answer: ");
                     retry = Console.ReadLine().ToUpper();
-                    if (retry == "Y" || retry == "Y")
+                    if (retry == "Y" || retry == "N")
                         break; //breaks the loop and goes to next line
                 }
             } while (retry != "Y" && retry != "N"); // end of invalid checker
