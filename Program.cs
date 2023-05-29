@@ -10,6 +10,7 @@ namespace TeReoMaoriQuiz
             Console.WriteLine("Te Reo Maori Quiz");
             Console.Write("\nWelcome!\nPlease enter your name to start:  "); // \n to indent to next line
             string user_name = Console.ReadLine();
+
             Console.WriteLine($"\nHello {user_name}!");
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
             string level = Console.ReadLine();
