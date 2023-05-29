@@ -13,13 +13,11 @@ namespace TeReoMaoriQuiz
             Console.WriteLine($"\nHello {user_name}!");
             Console.Write("Choose a difficulty by choosing a number below;\n1.Easy\n2.Medium\n3.Hard\n4.Exit\nType here: ");
             string level = Console.ReadLine();
-
             while (level != "1" && level != "2" && level != "3" && level != "4") // checks for invalid inputs
             {
                 Console.Write("Please enter a valid option: ");
                 level = Console.ReadLine();
-            }
-                
+            } 
             string user_input = "", user_strAge = "17", user_country = "New Zealand", user_beloved = "Mom", user_fav_game = "Football";
             int user_age = 17;
             if (level == "1")
@@ -91,17 +89,11 @@ namespace TeReoMaoriQuiz
                 }
                 Console.Write("\nType your answer here: ");
                 user_answer = Console.ReadLine().ToUpper(); //toupper capitalises user input
-                do //checks for invalid inputs
+                while (user_answer != "A" && user_answer != "B" && user_answer != "C"); // looped as long as it doesn't match ABC
                 {
-                    if (user_answer != "A" && user_answer != "B" && user_answer != "C")
-                    {
-                        Console.Write("Please input a valid answer: ");
-                        user_answer = Console.ReadLine().ToUpper();
-                        if (user_answer == "A" || user_answer == "B" || user_answer == "C")
-                            break; //breaks the loop and goes to next line
-                    }
-                } while (user_answer != "A" && user_answer != "B" && user_answer != "C"); // looped as long as it doesn't match ABC
-
+                    Console.Write("Please input a valid answer: ");
+                    user_answer = Console.ReadLine().ToUpper();
+                }
                 if (user_answer == correct_answers) // if user_answer matches correct answer (true or false), it adds 1 point to user_score, add 1 to outof and tells user that they are correct
                 {
                     user_score += QUESTION_VALUE; // question value is 1 set earlier
@@ -122,17 +114,11 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("Unfortunately, you failed the quiz, better luck next time.");
             Console.Write("\n\nDo you want to start another quiz? (Y or N): ");
             string retry = Console.ReadLine().ToUpper(); // converts to upper
-            do //checks for invalid inputs
+            while (retry != "Y" && retry != "N"); // end of invalid checker
             {
-                if (retry != "Y" && retry != "N")
-                {
-                    Console.Write("Please input a valid answer: ");
-                    retry = Console.ReadLine().ToUpper();
-                    if (retry == "Y" || retry == "N")
-                        break; //breaks the loop and goes to next line
-                }
-            } while (retry != "Y" && retry != "N"); // end of invalid checker
-
+                Console.Write("Please input a valid answer: ");
+                retry = Console.ReadLine().ToUpper();
+            }
             if (retry == "Y") // if Y it goes back to menu
                 Main(args);
             else if (retry == "N") //if N it breaks = end
@@ -142,16 +128,11 @@ namespace TeReoMaoriQuiz
         {
             Console.Write("\nAnswer the question? (Y/N): ");
             string tempYN = Console.ReadLine().ToUpper();
-            do //checks for invalid inputs
+            while (tempYN != "Y" && tempYN != "N");
             {
-                if (tempYN != "Y" && tempYN != "N")
-                {
-                    Console.Write("Please input a valid answer: ");
-                    tempYN = Console.ReadLine().ToUpper();
-                    if (tempYN == "Y" || tempYN == "N")
-                        break; //breaks the loop and goes to next line
-                }
-            } while (tempYN != "Y" && tempYN != "N");
+                Console.Write("Please input a valid answer: ");
+                tempYN = Console.ReadLine().ToUpper();
+            }
             switch (tempYN)
             {
                 case "Y":
