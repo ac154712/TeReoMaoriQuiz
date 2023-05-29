@@ -26,7 +26,7 @@ namespace TeReoMaoriQuiz
                 Console.WriteLine("Welcome to the Beginner's Quiz!\n\nThis is a 10 question quiz about the basics of Maori languange. This test will test your knowledge of Moari \nVocabulary. You will have to choose from the options below of the best Maori translation of the english word \ngiven, choose the letter of the answer. Take your time and goodluck!\n\nPress any key to start ...");
                 Console.ReadKey();                                                                                                                                                                      
                 Console.Clear(); // OPTIONAL QUESTIONS PART
-                Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Press enter to every question.\n\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");                                                                                        
+                Console.WriteLine("Just a few questions before we start the quiz, this is optional, so you don't have to answer these questions \nif you don't want to. Enter Y to ANSWER the question and N to SKIP..\n\nThe answers of these questions will be used all throughout the test to make it a little bit more fun and interactive.");                                                                                        
                 Console.Write("\nHow old are you?"); // optional question 1
                 user_strAge = OptionalQuestionsMethod(user_input);
                 user_age = Convert.ToInt32(user_strAge);                                                                                                                                               
@@ -126,7 +126,7 @@ namespace TeReoMaoriQuiz
         } // end of main method
         static string OptionalQuestionsMethod(string user_input)
         {
-            Console.Write("\nAnswer the question? (Y/N): ");
+            Console.Write("\nDo you want to answer the question? (Y/N): ");
             string tempYN = Console.ReadLine().ToUpper();
             while (tempYN != "Y" && tempYN != "N");
             {
